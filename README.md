@@ -18,6 +18,8 @@ To submit a writeup, fork the repository, add your writeup, and send a pull requ
 ```
 ### Solved by <team-member>
 
+If it doesn't already exist in the repository, go ahead and create the /<year>/<ctfname> directory and add your writeup there. 
+
 To add images, save your image to /images/<year>/<ctfname>/<challenge-name>
 Embed images using: ![](/images/<year>/<ctfname>/<challenge-name>/img.png)
 ```
