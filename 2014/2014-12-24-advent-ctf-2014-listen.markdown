@@ -30,7 +30,7 @@ bitvijays@kali:~/Desktop/Advent$ hexdump -C listen.wav | more
 00000020  02 00 10 00 64 61 74 61  4a 02 05 00 00 00 00 00  |....dataJ.......|
 ```
 
-{% img /images/2014/advent/wave-bytes.gif %}
+![](/images/2014/advent/wave-bytes.gif)
 
 If we see everything is more or less correct but the sample rate is 01 00, which as suggested by vlc is too low audio sample frequency. Changing it to "22 56" i.e 22050 and playing it gives us the flag.
 ```

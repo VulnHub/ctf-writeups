@@ -13,7 +13,7 @@ Steve's List was a 200 points master challenge mostly focused on web exploitatio
 
 The problem stated
 
-{% img center /images/2014/pico/steveslist/problem.png %}
+![](/images/2014/pico/steveslist/problem.png)
 
 So we were playing with a defaced website, we had the web server, a backup archive containing the source for a white box analysis and a flag to read.
 
@@ -91,7 +91,7 @@ but now we can predict the hash that will result by padding that value and appen
 
 Using a python library for implementing the Length extension attack: hlextend i was able to build a simple payload that would bypass the validation; for now let's be happy i was able to inject test.
 
-{% img center /images/2014/pico/steveslist/hashbypass.png %}
+![](/images/2014/pico/steveslist/hashbypass.png)
 
 Once the problem of bypassing the hash validation was solved, I had to find a way to gain code execution.
 Doing that on the remote server would have been a little too much of a frustration, so i decided to create a local instance using the website backup, and by tweaking the code a bit, try to build a working object that would allow to gain code execution.
@@ -177,7 +177,7 @@ URL encoded it, and tried to send it to my local server.
 
 The result was the following
 
-{% img center /images/2014/pico/steveslist/injected.png %}
+![](/images/2014/pico/steveslist/injected.png)
 
 Ok, now i had an object that would allow me to execute arbitrary code on the remote server.
 
@@ -235,5 +235,5 @@ the resulting cookies content for the submission to the vulnerable page were res
 
 and they resulted in the flag being correctly retrieved
 
-{% img center /images/2014/pico/steveslist/flag.png %}
+![](/images/2014/pico/steveslist/flag.png)
 

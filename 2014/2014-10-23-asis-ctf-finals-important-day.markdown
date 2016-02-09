@@ -18,7 +18,7 @@ Important Day was a 100 points challenge where you were provided with a pcap fil
 By looking at the pcap file it really looked like a portscan, and by a quick google search i ran into a post from back in 2006 on seclists.org discussing about the possibility to guess the time of the last system reboot, by looking at the TCP protocol TSVAL option.
 <!--more--!>
 
-{% img center /images/2014/asis-finals/importantday/scan.png %}
+![](/images/2014/asis-finals/importantday/scan.png)
 
 Bsically since the TSVAL counter is reset to zero every time the system reboots (at least on many OSes), if you know the frequency at which TSVAL is increased, you can try to guess the boot timestamp.
 
@@ -32,7 +32,7 @@ I decided to set the following filter
 
 so that i could get only the packets having the tsval option field set, and coming from the target system (not the stanning one)
 
-{% img center /images/2014/asis-finals/importantday/filtered.png %}
+![](/images/2014/asis-finals/importantday/filtered.png)
 
 And then analyzed how the TSVAL increased compared to the milliseconds in the packet capture timestamp.
 

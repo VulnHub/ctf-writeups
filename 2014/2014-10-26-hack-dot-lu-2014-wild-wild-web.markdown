@@ -11,19 +11,19 @@ categories: [hack.lu]
 
 Image upload was a web challenge for the hack.lu CTF, providing a login form, and the possibility to upload images.
 
-{% img center /images/2014/hack.lu/wildwildweb/imageupload.png %}
+![](/images/2014/hack.lu/wildwildweb/imageupload.png)
 
 What I could immediatelly notice was that there was a pretty strong sanitization of the uploaded content, both in terms of mimetype as well as for the file extension; it was possible to upload php code of course, but you would need to upload it as .jpg, and make sure the mimetype in the multypart form data was correct or an error was returned.
 
 plus, once an image was uploaded, it was modified and embedded into a mugshot.
 
-{% img center /images/2014/hack.lu/wildwildweb/uploaded.png %}
+![](/images/2014/hack.lu/wildwildweb/uploaded.png)
 
 So the way of the file inclusion wasn't a good idea, as most likely the code would have been scrumbled, modified or messed up, resulting in something broken.
 
 Yet, if we were to look at the bottom of every image, we could notice that there were fields ready for displaying images detail in case they were present.
 
-{% img center /images/2014/hack.lu/wildwildweb/metadata.png %}
+![](/images/2014/hack.lu/wildwildweb/metadata.png)
 
 Author, Manufacturer, and Model are EXIF metadata in jpg images, so the application was probably reading these metadata from our uploaded images, and store them into the database for displaying them later.
 
@@ -43,7 +43,7 @@ It took me some trial and error but finally, with the precious help of Barrebas 
 
 we were presented with a nice result
 
-{% img center /images/2014/hack.lu/wildwildweb/sqli.png %}
+![](/images/2014/hack.lu/wildwildweb/sqli.png)
 
 At this point i started enumerating the database replacing the *@@version* with proper queries that would eventually provide me with the informations about the databases, schemas and tables.
 
@@ -57,7 +57,7 @@ Started enumerating tables in the database
 
 till I finally reached the users table
 
-{% img center /images/2014/hack.lu/wildwildweb/tablename.png %}
+![](/images/2014/hack.lu/wildwildweb/tablename.png)
 
 At this point i needed the fields name
 
@@ -72,7 +72,7 @@ to finally extract them
 	SELECT concat(name, ';', password) from chal.users LIMIT 1
 ```
 
-{% img center /images/2014/hack.lu/wildwildweb/login.png %}
+![](/images/2014/hack.lu/wildwildweb/login.png)
 
 Using the credentials displayed in the above image it was possible to login in the web application and receive the flag.
 

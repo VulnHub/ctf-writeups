@@ -11,7 +11,7 @@ categories: [picoctf]
 
 Guess was a basic 75 points binary exploitation challenge in picoCTF 2014
 
-{% img center /images/2014/pico/guess/problem.png %}
+![](/images/2014/pico/guess/problem.png)
 
 <!-- more -->
 

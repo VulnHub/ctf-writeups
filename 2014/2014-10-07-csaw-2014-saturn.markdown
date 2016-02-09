@@ -60,7 +60,7 @@ The access to these 3 branches was handled by something similar to a case switch
 - if the first byte was in the range of 0xe0 to 0xef the execution flow would get into the function responsible for checking the response
 - if the first byte was a 0x80, the execution flow would get into the function responsible for printing the flag to stdout.
 
-{% img center /images/2014/csaw/saturn/caseswitch.png %}
+![](/images/2014/csaw/saturn/caseswitch.png)
 
 At this point we knew that intended way to interact with the binary was to
 
@@ -161,13 +161,13 @@ We thought we were really close to solving the puzzle, but we were obviously pro
 
 If we take a look at the graph of the function responsible of opening the flag.txt file and then writing it to stdout, we can notice that there is a funny and evil function which i decided to name Cycles()
 
-{% img center /images/2014/csaw/saturn/openfile.png %}
+![](/images/2014/csaw/saturn/openfile.png)
 
 Apparantly it looks like that depending on the return value of that function, we would or wouldn't be able to read the flag.
 
 Let's give a quick look at the function
 
-{% img center /images/2014/csaw/saturn/cycles.png %}
+![](/images/2014/csaw/saturn/cycles.png)
 
 The concept is as simple as this:
 

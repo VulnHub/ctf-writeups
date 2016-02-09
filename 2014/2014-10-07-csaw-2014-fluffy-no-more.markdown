@@ -33,7 +33,7 @@ I had the logs from the web server, but like in any webserver logs, when analyzi
 To make my life easier, i quickly imported the database and the blog site on a lab machine, and started looking into it:
 It was a matter of no time that I could spot a comment to a blog post boasting about the will of compromising the site.
 
-{% img center /images/2014/csaw/fluffynomore/comment.png %}
+![](/images/2014/csaw/fluffynomore/comment.png)
 
 I remembered that wordpress, in the comments table, has a field where the IP address of the posting user is saved, I decided to take a look at it, because i thought that it could have been useful in terms of correlations with the apache webserver logs. In most cases this is not gonna happen, you'll unlikely be so lucky, but I was approaching to a CTF problem, not a real world scenario, and so I decided to bet on this.
 
@@ -47,13 +47,13 @@ Messing with the logs at this poit was a possibility, but i decided that probabl
 
 I reset my instance of the blog and logged in as admin to check for the list of installed plugins, and verify if at least one of them was vulnerable.
 
-{% img center /images/2014/csaw/fluffynomore/mailpoet.png %}
+![](/images/2014/csaw/fluffynomore/mailpoet.png)
 
 Mail Poet newsletter pulled my attention as it was the only plugin that was alerting that a new version was available, so why not look in public repositories if an exploit for the installed version is available?
 
 I browsed exploit-db and it resulted that a metasploit module to gain remote code execution on this specific wordpress plugin is available.
 
-{% img center /images/2014/csaw/fluffynomore/edb.png %}
+![](/images/2014/csaw/fluffynomore/edb.png)
 
 By a quick look at the exploit code, it's possible to figure out that an attacker can upload an arbitrary payload by sending the following POST request
 
@@ -253,7 +253,7 @@ upon execution.
 
 The PDF, when opened into a viewer looked as follow:
 
-{% img center /images/2014/csaw/fluffynomore/pdf.png %}
+![](/images/2014/csaw/fluffynomore/pdf.png)
 
 and at a first look it looked just like an image of a wizard with text on it.
 
