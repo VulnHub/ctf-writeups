@@ -6,7 +6,7 @@ ZOR is a 50 point Cryptography challenge. You are provided with a encrypted file
 ZOR.py
 encrypted
 
-{% codeblock ZOR.py%}
+```
 #!/usr/bin/python
 
 import sys
@@ -55,7 +55,8 @@ def main():
     out_file.close()
 
 main()
-{% endcodeblock)
+```
+
 If you see the encrypt function, key is bitwise and with 0xFF which means there are only 256 possible key combinations.
 ```
 def encrypt(input_data, password):

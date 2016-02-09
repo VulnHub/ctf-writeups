@@ -27,9 +27,9 @@ find -empty -type f -delete
 ```
 
 Garbage got removed from 
-{% img /images/2015/hackim/forensics300/for3001.png)
+![](/images/2015/hackim/forensics300/for3001.png)
 to 
-{% img /images/2015/hackim/forensics300/for3002.png)
+![](/images/2015/hackim/forensics300/for3002.png)
 
 ran2.sh looked interested and had a entry "FILEEXT=".JPG"", May be our flag is jpg.
 ```
@@ -39,7 +39,7 @@ find . -type f -exec file {} + | grep JPEG
 //Filename contains a space so we have to unescape it
 display ./poiuy7Xdb/7yknXuW/VXIXNxl/wmDKAM\ 1/lkjhwerle.jpg
 ```
-{% img /images/2015/hackim/forensics300/for3003.jpg)
+![](/images/2015/hackim/forensics300/for3003.jpg)
 
 The flag is **flag{f0rens!cs!sC00L}**
 

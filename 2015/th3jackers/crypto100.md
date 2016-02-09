@@ -19,8 +19,7 @@ Enter the f****** argument
 
 Alright!  So we need an argument apparently :)  Upon running the program with single character arguments, you get various different outputs.  After testing each possible character I see that each character in the key we need to decrypt is included in our tests.  So apparently all we need to do in this challenge is translate each part of our "ciphertext" to it's printable character counterpart.  I decided to script this up to make it less tedious.
 
-{% codeblock lang:python)
-{% raw)
+```
 #!/usr/bin/python
 import subprocess, string
 
@@ -41,9 +40,8 @@ for x in a:
 for i in goal:
         solution += d[i]
 
-print "[+] Solution: 'flag{%s}'"%solution
-{% endraw)
-{% endcodeblock)
+print "[+] Solution: 'flag\{%s\}'"%solution
+```
 
 
 After running our script, we get the flag.

@@ -499,12 +499,10 @@ print decrypt("\x56\x0c\x0a\x1d\x67\x08\x42\x18\x57\x5c\x53\x4f\x1a\x04\x72\x21\
 
 Which *finally* gave us the flag:
 
-{% raw)
 ```
-EKO{%s}
+EKO\{%s\}
 b4by_3xpl0it_FMT_str1ng_FTW!#$
 ```
-{% endraw)
 
 The flag was `EKO{b4by_3xpl0it_FMT_str1ng_FTW!#$}`. Too bad the challenge was broken, nice to learn a new technique!
 
