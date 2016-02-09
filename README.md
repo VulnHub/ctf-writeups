@@ -13,3 +13,11 @@ Here's a list of our active team members:
 * NullMode [https://nullmode.github.io/](https://nullmode.github.io/) || [@NullMode_](https://twitter.com/NullMode_) || [VulnHub Profile](https://www.vulnhub.com/author/nullmode,56/)
 * et0x [http://rwnin.net/](http://rwnin.net/) || [@_et0x](https://twitter.com/_et0x) || [VulnHub Profile](https://www.vulnhub.com/author/et0x,109/)
 * bitvijays [https://bitvijays.github.io/](https://bitvijays.github.io/) || [@bitvijays](https://twitter.com/bitvijays)
+
+To submit a writeup, fork the repository, add your writeup, and send a pull request. You can use the following template: 
+```
+### Solved by <team-member>
+
+To add images, save your image to /images/<year>/<ctfname>/<challenge-name>
+Embed images using: ![](/images/<year>/<ctfname>/<challenge-name>/img.png)
+```
