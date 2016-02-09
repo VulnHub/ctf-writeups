@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Forensics 100"
-date: 2015-01-11 17:49:10 -0500
-author: [swappage]
-comments: true
-categories: [hackim]
----
-
 ### Solved by Swappage
 
 This is the first and supposely easier forensics problem in the NullCon CTF 2015

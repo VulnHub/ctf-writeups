@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Make A Face"
-date: 2014-11-07 20:12:08 -0500
-author: [swappage, barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by Swappage and barrebas
 
 Make a Face is a 100 point challenge. 

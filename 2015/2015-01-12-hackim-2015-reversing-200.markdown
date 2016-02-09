@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Reversing 200"
-date: 2015-01-12 12:59:31 -0500
-author: [bitvijays]
-comments: true
-categories: [hackim]
----
-
 ###Solved by bitvijays
 
 We were provided a with a upx.zip file. Unzipping it provided us with a windows executable file

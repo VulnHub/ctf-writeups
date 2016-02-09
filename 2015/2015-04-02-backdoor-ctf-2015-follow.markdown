@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 Follow"
-date: 2015-04-02 16:07:01 -0400
-author: [superkojiman]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by superkojiman
 
 A 10 point freebie question. The flag we need is split into two. We're told that the first half can be found somewhere in [BackdoorCTF's Twitter account](https://twitter.com/Backdoorctf), and the other half on their IRC channel #backdoorctf15. For Twitter, I just looked through all the posts until I found the first half of the flag [here](https://twitter.com/BackdoorCTF/status/570822175420129280). For the IRC channel, it was in the topic. 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Spoof Proof"
-date: 2014-11-07 07:04:04 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 In the excercise, we have to find the attacker's last name and the two IP address he has spoofed. 

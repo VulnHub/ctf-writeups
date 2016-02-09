@@ -1,12 +1,3 @@
----
-layout: post
-title: "MMA 1st 2015 Login As Admin"
-date: 2015-09-06 19:57:01 -0400
-author: [superkojiman]
-comments: true
-categories: [mma]
----
-
 ### Solved by superkojiman
 
 The flag is the admin user's real password. 

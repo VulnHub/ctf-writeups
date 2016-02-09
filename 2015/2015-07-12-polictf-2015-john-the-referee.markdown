@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 John The Referee"
-date: 2015-07-12 17:08:52 -0400
-author: [swappage, nullmode]
-comments: true
-categories: [polictf]
----
-
 ### Solved by Swappage and NullMode
 
 John the referee was a 150 points web challenge with some crypto added to the recipe :)

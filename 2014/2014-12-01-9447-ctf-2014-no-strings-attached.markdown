@@ -1,12 +1,3 @@
----
-layout: post
-title: "9447 CTF 2014 No Strings Attached"
-date: 2014-12-01 18:06:16 -0500
-author: [bitvijays]
-comments: true
-categories: [9447]
----
-
 ### Solved by bitvijays, with special thanks to barrebas
 
 In this challenge you are provided with a 32 bit binary, which when executed asks for a password:

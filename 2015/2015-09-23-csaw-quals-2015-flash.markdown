@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Flash"
-date: 2015-09-23 19:17:29 -0400
-author: [bitvijays]
-comments: true
-categories: [csaw]
----
-
 ### Solved by bitvijays
 
 In this challenge we were provided a image(dump) file, this challenge was also pretty easy, by just running strings on the dump the flag could be found.

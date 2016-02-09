@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Potentially Hidden Password"
-date: 2014-11-07 19:58:22 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Potentially Hidden Password is a 100 point web exploitation challenge. 

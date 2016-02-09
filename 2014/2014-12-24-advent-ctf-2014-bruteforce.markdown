@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Bruteforce"
-date: 2014-12-24 14:27:33 -0500
-author: [barrebas]
-comments: true
-categories: [advent]
----
-
 ### Solved by barrebas
 
 Bruteforce they said, it'll be fun, they said...

@@ -1,12 +1,3 @@
----
-layout: post
-title: "0CTF 2015 Quals BabyPolyQuine"
-date: 2015-03-30 13:45:42 -0400
-author: [superkojiman]
-comments: true
-categories: [0ctf]
----
-
 ### Solved by superkojiman
 
 This was a 100 point challenge where we had to submit a quine that worked in at least three of five languages. The quine was tested against C, Python 2, Python 3, Ruby, and Perl.

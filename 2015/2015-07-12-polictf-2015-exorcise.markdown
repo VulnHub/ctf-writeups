@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 Exorcise"
-date: 2015-07-12 17:18:01 -0400
-author: [barrebas]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas
 
 Exorcise was a 50 point crypto challenge for PoliCTF.

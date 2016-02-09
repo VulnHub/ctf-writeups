@@ -1,12 +1,3 @@
----
-layout: post
-title: "9447 CTF Tumorous"
-date: 2014-12-03 11:57:05 -0500
-author: [historypeats]
-comments: true
-categories: [9447]
----
-
 ### Solved by historypeats
 
 > They are following me. They are after my token. I have to hide it somewhere. I’m not very good at hiding.

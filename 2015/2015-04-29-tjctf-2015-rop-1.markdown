@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 ROP 1"
-date: 2015-04-29 01:36:14 -0400
-author: [superkojiman]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by superkojiman
 
 Simple overflow using gets. We need to redirect execution to give_shell(). We can find its address in gdb:

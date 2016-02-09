@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 ShellcodeMe"
-date: 2014-12-24 14:26:41 -0500
-author: [barrebas]
-comments: true
-categories: [advent]
----
-
 ### Solved by barrebas 
 
 Why o why do we take part in these painful exercises? Again, `shellcodeme` seemed like such a simple task. But looks, like all the other challenges of Advent CTF 2014, can be deceiving!

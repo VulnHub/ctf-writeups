@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Function Address"
-date: 2014-11-07 19:54:03 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Function Address is a 60 point reverse engineering challenge. 

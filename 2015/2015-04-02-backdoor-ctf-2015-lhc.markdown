@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 LHC"
-date: 2015-04-02 16:16:05 -0400
-author: [barrebas]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by barrebas
 
 `LHC` was a short & sweet challenge in Backdoor CTF. It had a nice 'aha-Erlebnis' moment.

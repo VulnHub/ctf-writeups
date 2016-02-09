@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 RSA 2070"
-date: 2015-09-20 23:31:36 -0400
-author: [barrebas]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by barrebas
 
 We're given a public key and a encrypted flag, with the task to get the private key. The public key is an RSA key:

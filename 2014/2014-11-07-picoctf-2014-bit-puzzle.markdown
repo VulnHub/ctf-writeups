@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Bit Puzzle"
-date: 2014-11-07 20:38:01 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 The last bastion of PicoCTF! `bitpuzzle` is a 32-bit ELF file. It asks for a string and first checks if the string is 32 bytes long. Then, it chops it up into four-byte chunks and does certain checks on each chunk, effectively constraining the values that are valid. In the end, if the string passes all checks, then that string is the flag. Looking at other flags, this probably limited our characterset to lowercase plus underscore. The first chuck-checking constraint was this:

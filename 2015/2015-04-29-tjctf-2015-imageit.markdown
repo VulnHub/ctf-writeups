@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 Imageit"
-date: 2015-04-29 01:21:28 -0400
-author: [historypeats]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by historypeats
 
 This challenge allowed us to upload an image and view it. There are checks in place to ensure that the file is indeed an image. It is not based on the file extension. Instead, the check is performed using the exif_imagetype() php function. This function checks the magic headers of a file to determine the MIME type. This can be seen in the following code snippet:

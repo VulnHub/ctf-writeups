@@ -1,12 +1,3 @@
----
-layout: post
-title: "th3jackers 2015 Crypto100"
-date: 2015-01-24 10:08:16 -0500
-author: [et0x]
-comments: true
-categories: [th3jackers]
----
-
 ### Solved by et0x
 
 For Crypto 100, you are given a 7z file, which when unzipped contains a binary and a file called "crypto.txt" which contains the following text:

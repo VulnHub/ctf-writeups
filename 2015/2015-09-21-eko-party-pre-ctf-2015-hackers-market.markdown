@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 Hacker's Market"
-date: 2015-09-21 19:15:05 -0400
-author: [swappage]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by Swappage
 
 Web50 was a php web application challenge based on file inclusion (not really) and some code obfuscation.

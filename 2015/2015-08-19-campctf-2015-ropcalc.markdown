@@ -1,12 +1,3 @@
----
-layout: post
-title: "CampCTF 2015 ROPCalc"
-date: 2015-08-19 20:59:16 -0400
-author: [barrebas]
-comments: true
-categories: [campctf]
----
-
 ### Solved by barrebas
 
 How could I resist a challenge called ropcalc? We're given the python server and a binary. We're supposed to write a ROP chain to satisfy certain conditions. The server.py will then pass random values for the registers to the binary, along with the ROP chain we provide. After execution of the ROP chain, it will check if the ROP chain has calculated the right answer. Pretty nifty, if you ask me!

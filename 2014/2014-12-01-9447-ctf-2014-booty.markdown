@@ -1,12 +1,3 @@
----
-layout: post
-title: "9447 CTF Booty"
-date: 2014-12-01 18:03:56 -0500
-author: [barrebas]
-comments: true
-categories: [9447]
----
-
 ### Solved by barrebas 
 
 9447 CTF was ran the other day, and while I didn't have a lot of time, I managed to snatch a couple of flags. First one was this pirate-themed Binary Exploitation. 

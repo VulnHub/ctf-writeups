@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Blacklist"
-date: 2014-12-24 14:19:04 -0500
-author: [historypeats]
-comments: true
-categories: [advent]
----
-
 ### Solved by historypeats
 
 > We have stupid blacklist. The flag is in flag table.

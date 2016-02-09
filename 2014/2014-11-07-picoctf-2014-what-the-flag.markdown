@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 What The Flag"
-date: 2014-11-07 20:03:22 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 What the flag is a 140 point exploitation challenge. 

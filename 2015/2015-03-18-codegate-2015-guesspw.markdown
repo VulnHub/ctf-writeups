@@ -1,12 +1,3 @@
----
-layout: post
-title: "Codegate 2015 GuessPW"
-date: 2015-03-18 09:25:10 -0400
-author: [superkojiman,barrebas,swappage]
-comments: true
-categories: [codegate]
----
-
 ### Solved by superkojiman, barrebas, Swappage
 
 guesspw is a SUID guesspw binary that takes a file as an argument. The contents of this file is compared with /home/guesspw/password and if they're the same, it gives us a shell. Naturally we don't have read permissions on /home/guesspw/password so we'll need to find a different way to get a shell.

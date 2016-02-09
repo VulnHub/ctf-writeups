@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCamp 2014 Web 200"
-date: 2014-10-23 14:30:59 -0400
-author: [barrebas, swappage, superkojiman]
-comments: true
-categories: [defcamp]
----
-
 ### Solved by barrebas, Swappage, and superkojiman
 
 superkojiman here. Navigating to the provided IP address 10.13.37.12 on a web browser displayed an image of a rose with the text. barrebas did the inital enumeration and found a /cms/admin directory containing a login form

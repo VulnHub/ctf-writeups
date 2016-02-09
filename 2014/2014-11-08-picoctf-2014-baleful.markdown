@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Baleful"
-date: 2014-11-08 10:24:02 -0500
-author: [barrebas, superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas and superkojiman
 
 #### Solving it with Pin

@@ -1,12 +1,3 @@
----
-layout: post
-title: "Pragyan CTF 2015 Web 1"
-date: 2015-03-18 08:56:55 -0400
-author: [NullMode]
-comments: true
-categories: [pragyan]
----
-
 ### Solved by NullMode
 
 This challenge consisted of downloading a zip file containing what appeared to be a web application.

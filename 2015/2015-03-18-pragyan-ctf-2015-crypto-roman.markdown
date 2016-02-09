@@ -1,12 +1,3 @@
----
-layout: post
-title: "Pragyan CTF 2015 Crypto Roman"
-date: 2015-03-18 08:58:55 -0400
-author: [NullMode]
-comments: true
-categories: [pragyan]
----
-
 ### Solved by NullMode
 
 The question2.tar.gz was downloaded an extracted and contained to files: encrypt and clue.

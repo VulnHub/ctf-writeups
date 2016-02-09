@@ -1,12 +1,3 @@
----
-layout: post
-title: "CampCTF 2015 Secret File"
-date: 2015-08-19 20:59:43 -0400
-author: [barrebas]
-comments: true
-categories: [campctf]
----
-
 ### Solved by barrebas
 
 In this case, we're asked to retrieve a secret file and given.. another binary. What did you expect?

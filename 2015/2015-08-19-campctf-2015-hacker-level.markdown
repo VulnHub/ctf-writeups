@@ -1,12 +1,3 @@
----
-layout: post
-title: "CampCTF 2015 Hacker Level"
-date: 2015-08-19 20:57:39 -0400
-author: [barrebas]
-comments: true
-categories: [campctf]
----
-
 ### Solved by barrebas
 
 Easy 200 points. We're given a binary and the source. We need to supply a name that will be processed into an integer. The resulting integer should be `0xCCC31337`. If you look at the function:

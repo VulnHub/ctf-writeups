@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Block"
-date: 2014-11-07 19:51:25 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Block is a 130 point cryptography challenge. I should mention that crypto isn't my forte so my solution is probably not the most efficient. But hey, it worked. 

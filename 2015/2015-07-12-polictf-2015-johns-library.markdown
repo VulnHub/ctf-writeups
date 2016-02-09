@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 John's Library"
-date: 2015-07-12 17:20:52 -0400
-author: [barrebas, swappage]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas and Swappage
 
 Finally, pwnables! John's Library was worth 150 points. I was a bit rusty but I managed to grab this flag. 

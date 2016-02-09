@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 QR"
-date: 2015-04-02 16:16:34 -0400
-author: [barrebas]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by barrebas
 
 For this challenge, we had to decode a ton of QR images given to us via a `nc` connection for 70 points. Sounds like fun!

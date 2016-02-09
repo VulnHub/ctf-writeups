@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 I See Python"
-date: 2015-04-29 01:33:18 -0400
-author: [superkojiman]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by superkojiman
 
 Decompile with [uncompyle](https://github.com/gstarnberger/uncompyle) and we see this:

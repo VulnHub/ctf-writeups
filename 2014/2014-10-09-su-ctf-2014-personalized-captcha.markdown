@@ -1,12 +1,3 @@
----
-layout: post
-title: "SU-CTF 2014 Personalized Captcha"
-date: 2014-10-09 16:56:18 -0400
-author: [swappage]
-comments: true
-categories: [sharif]
----
-
 ### Solved by Swappage
 
 Second CTF for the VulnHub team, and lots of fun with these puzzles.

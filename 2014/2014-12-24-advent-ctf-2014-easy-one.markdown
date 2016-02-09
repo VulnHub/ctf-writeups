@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Easy One"
-date: 2014-12-24 13:48:40 -0500
-author: [bitvijays]
-comments: true
-categories: [advent]
----
-
 ### Solved by bitvijays
 In this reversing challenge, we are provided with the binary which when executed requests for the password.
 

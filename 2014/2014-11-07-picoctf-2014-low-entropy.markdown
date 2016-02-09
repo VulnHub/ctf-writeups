@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Low Entropy"
-date: 2014-11-07 20:10:53 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Low Entropy is a 110 point challenge. 

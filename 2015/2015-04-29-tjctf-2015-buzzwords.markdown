@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 Buzzwords"
-date: 2015-04-29 02:19:56 -0400
-author: [superkojiman]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by superkojiman
 
 Connecting to the target presents a menu:

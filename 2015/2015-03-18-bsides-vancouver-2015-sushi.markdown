@@ -1,12 +1,3 @@
----
-layout: post
-title: "BSides Vancouver 2015 Sushi"
-date: 2015-03-18 19:17:12 -0400
-author: [barrebas]
-comments: true
-categories: [bsides vancouver]
----
-
 ### Solved by barrebas 
 
 At the very last minute, we decided to join BSides Vancouvers' CTF. Sushi was a 100 point pwnable. 

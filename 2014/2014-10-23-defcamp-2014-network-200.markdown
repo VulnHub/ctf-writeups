@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCamp 2014 Network 200"
-date: 2014-10-23 11:42:21 -0400
-author: [barrebas]
-comments: true
-categories: [defcamp]
----
-
 ### Solved by barrebas
 
 Again, we get a clue:

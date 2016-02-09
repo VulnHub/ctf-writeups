@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Easypwn"
-date: 2014-12-24 14:23:36 -0500
-author: [barrebas]
-comments: true
-categories: [advent]
----
-
 ### Solved by barrebas
 
 Another pwnable, named "easypwn", no less! Should be a walk in the park, right? Of course, it turns out it wasn't! We're given only the executable. The challenge description informs us: no libs, ASLR enabled. Flag is in `/home/easypwn/flag`. Great! Disassembling the binary leads to the following code:

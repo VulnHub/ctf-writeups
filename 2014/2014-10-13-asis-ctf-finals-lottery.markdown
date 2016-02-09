@@ -1,12 +1,3 @@
----
-layout: post
-title: "ASIS CTF Finals Lottery"
-date: 2014-10-13 15:08:14 -0400
-author: [barrebas]
-comments: true
-categories: [asis]
----
-
 ### Solved by barrebas
 
 Lottery was a 100 point web challenge in the ASIS Finals CTF. The description only said 'Go here: http://asis-ctf.ir:12437'. That webpage was mostly non-functional, but said that the 1234567890th visitor would win a *prize*. Gee, I wonder what that is? My browser informed me that there were no cookies, but I wasn't convinced.

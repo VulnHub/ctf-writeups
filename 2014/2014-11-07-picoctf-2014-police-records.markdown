@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Police Records"
-date: 2014-11-07 19:56:58 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Police Records is a 140 point challenge. We're given the following desctipion:

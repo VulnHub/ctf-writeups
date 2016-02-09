@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Pickle Jar"
-date: 2014-11-07 23:23:17 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 Pickle Jar is a 30 point forensics challenge. You are provided with a file named pickle.jar.

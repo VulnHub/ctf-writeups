@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014: Steve's List"
-date: 2014-11-07 21:05:49 +0100
-author: [swappage]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by Swappage
 
 Steve's List was a 200 points master challenge mostly focused on web exploitation, but also with a little of crypto inside.

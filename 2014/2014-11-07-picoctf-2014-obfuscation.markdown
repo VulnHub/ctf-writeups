@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Obfuscation"
-date: 2014-11-07 20:21:36 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Obfuscation is a 150 point challenge. 

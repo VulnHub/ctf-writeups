@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 Web Image"
-date: 2015-04-29 01:26:45 -0400
-author: [historypeats]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by historypeats
 
 This challenge was a web application that would change images when you typed them in. The method for communication was websockets between the application endpoint and the front-end. To do this challenge, I used burp to inspect the results of the websockets.

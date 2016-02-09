@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCamp 2014 Misc 400"
-date: 2014-10-23 15:07:11 -0400
-author: [superkojiman, barrebas]
-comments: true
-categories: [defcamp]
----
-
 ### Solved by superkojiman and barrebas
 
 barrebas did the intial enumeration and found CesarFTP 0.99 running on the target. CesarFTP is a windows FTP server, so we were up against a Windows server.

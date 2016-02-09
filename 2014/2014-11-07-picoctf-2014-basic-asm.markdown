@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Basic ASM"
-date: 2014-11-07 19:50:05 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Basic ASM is a 60 point reverse engineering challenge. 

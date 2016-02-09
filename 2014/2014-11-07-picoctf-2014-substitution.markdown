@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Substitution"
-date: 2014-11-07 20:01:22 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Substitution is a 50 point cryptography challenge. This is another one of the easy ones. 

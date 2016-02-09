@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Injection1"
-date: 2014-11-07 19:50:05 -0500
-author: [et0x]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by et0x
 
 Injection 1 is a 90 point web exploitation challenge. 

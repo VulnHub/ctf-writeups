@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 ECHOES"
-date: 2015-09-21 18:32:11 -0400
-author: [barrebas, superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by barrebas and superkojiman
 
 Where on earth shall we begin? This one kept us busy for quite some time. The challenge gives no binary, just an address to connect to. Upon connecting, we get some kind of echo server. We quickly noticed a string format vulnerability:

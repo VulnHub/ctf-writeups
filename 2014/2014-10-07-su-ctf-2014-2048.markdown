@@ -1,12 +1,3 @@
----
-layout: post
-title: "SU-CTF 2014 2048"
-date: 2014-10-07 20:18:15 -0400
-author: [superkojiman]
-comments: true
-categories: [sharif]
----
-
 ### Solved by superkojiman
 
 This is a 200 point reversing challenge for Sharif CTF 2014, called 2048.

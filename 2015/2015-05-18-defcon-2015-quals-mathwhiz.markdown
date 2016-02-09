@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCon 2015 Quals mathwhiz"
-date: 2015-05-18 12:20:17 -0400
-author: [superkojiman]
-comments: true
-categories: [defcon]
----
-
 ### Solved by superkojiman
 
 This was a fairly easy problem. Connecting to the server will return a math problem, and we need to return the solution. The problems start off very easy, two numbers that need to be added or subtracted. After that you start getting three numbers. Then come the parentheses, brackets, and braces. Once you get past that, numbers are replaced with words (eg: 3 becomes THREE). Finally you need to deal with numbers with exponents. I hacked together the following script that solves those problems: 

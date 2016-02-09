@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Web 400"
-date: 2015-01-11 17:58:02 -0500
-author: [swappage,nullmode]
-comments: true
-categories: [hackim]
----
-
 ### Solved by Swappage and NullMode
 
 In this 400 points problem we were asked to buy a Nullcon pass for free.

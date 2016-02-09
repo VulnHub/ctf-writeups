@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW 2014 s3"
-date: 2014-10-07 19:47:07 -0400
-author: [barrebas]
-comments: true
-categories: [csaw]
----
-
 ### Solved by barrebas
 
 A while ago, we threw together a semi-official VulnHub CTF. This team participated in the CSAW CTF. For me, it was a new and _humbling_ experience. I didn't get a lot of flags but I managed to get this one.

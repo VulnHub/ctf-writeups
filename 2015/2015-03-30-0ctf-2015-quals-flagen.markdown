@@ -1,12 +1,3 @@
----
-layout: post
-title: "0CTF 2015 Quals Flagen"
-date: 2015-03-30 14:19:42 -0400
-author: [barrebas]
-comments: true
-categories: [0ctf]
----
-
 ### Solved by barrebas
 
 `flagen` is a 32-bit ELF, and we're also given the corresponding `libc` library. It functions as a flag generator, which can perform various functions on the input:

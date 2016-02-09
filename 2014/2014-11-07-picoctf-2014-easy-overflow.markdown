@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Easy Overflow"
-date: 2014-11-07 19:53:00 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Easy Overflow is a 40 point binary exploitaiton challenge. This one's a warm up challenge. 

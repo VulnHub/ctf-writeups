@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Fancy Cache"
-date: 2014-11-07 20:08:39 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Fancy Cache was another "Master Challenge" for PicoCTF worth 200 points. It featured a custom server, which allegedly creates a cache of strings. It's up to us to break it!

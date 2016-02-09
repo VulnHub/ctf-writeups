@@ -1,12 +1,3 @@
----
-layout: post
-title: "Pragyan CTF 2015 Android"
-date: 2015-03-19 13:57:00 -0400
-author: [bitvijays]
-comments: true
-categories: [pragyan]
----
-
 ###Solved by bitvijays
 
 This post provides the write up of Android Section available in Pragyan CTF.

@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCon 2015 Quals babyecho"
-date: 2015-05-18 12:36:08 -0400
-author: [superkojiman,swappage]
-comments: true
-categories: [defcon]
----
-
 ### Solved by superkojiman and Swappage
 
 This was basically an echo server. Send it something, and it echoes it back. Swappage started off working on this while I was probably asleep. He found a format string vulnerability which allowed us to leak information from the stack. However, we were limited to 13 characters only. 

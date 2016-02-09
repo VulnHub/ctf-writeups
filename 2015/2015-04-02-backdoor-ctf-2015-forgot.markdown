@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 Forgot"
-date: 2015-04-02 14:19:08 -0400
-author: [superkojiman,barrebas]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by superkojiman and barrebas
 
 Barrebas and I started working on this separately and ended up with a solution almost simultaneously. Forgot is a 32-bit ELF binary that asks for a name, and an email address to validate. We quickly found out that we could crash the binary by sending a large string for either the name or the email address:

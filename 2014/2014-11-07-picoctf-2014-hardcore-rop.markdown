@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Hardcore ROP"
-date: 2014-11-07 20:09:16 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Picoctf had a few "Master Challenges" worth 200 points. This is how we broke `hardcore_rop`. The challenge promises ASLR, NX, PIE and what-have-you, so let's get cracking!

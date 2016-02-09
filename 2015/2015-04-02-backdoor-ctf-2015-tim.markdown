@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 TIM"
-date: 2015-04-02 16:11:17 -0400
-author: [superkojiman]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by superkojiman
 
 Clone the repository at https://github.com/backdoor-ctf/TIM/ and view the git log. We see two characters for each commit. Join these and we get:

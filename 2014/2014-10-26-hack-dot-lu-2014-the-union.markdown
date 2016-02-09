@@ -1,12 +1,3 @@
----
-layout: post
-title: "Hack.lu 2014 The Union"
-date: 2014-10-26 12:34:21 -0400
-author: [barrebas]
-comments: true
-categories: [hack.lu]
----
-
 ### Solved by barrebas
 
 Hack.lu 2014 was a very fun, western-themed CTF. For `the Union`, we were given an executable and a place to connect to. We need to find `secret.txt` and the hint is that "not everything is what it seems". Uh-huh. 

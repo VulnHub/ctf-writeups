@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Best Shell"
-date: 2014-11-07 19:50:49 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Best Shell is a 160 point binary exploitation challenge. 

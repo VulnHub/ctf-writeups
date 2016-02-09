@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 Judge"
-date: 2015-04-02 16:15:28 -0400
-author: [barrebas]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by barrebas
 
 A web challenge! For 100 points, we we're asked to log in as `admin`.

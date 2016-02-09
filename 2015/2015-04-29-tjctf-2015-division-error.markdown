@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 Division Error"
-date: 2015-04-29 07:35:56 -0400
-author: [swappage]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by Swappage
 
 In this problem we were provided with the following python flask web application

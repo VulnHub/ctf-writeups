@@ -1,12 +1,3 @@
----
-layout: post
-title: "BCTF 2015 Torrent"
-date: 2015-03-27 00:26:26 -0400
-author: [swappage]
-comments: true
-categories: [bctf]
----
-
 ### Solved by Swappage
 
 Torrent lover was a 235 points worth challenge in BCTF 2015.

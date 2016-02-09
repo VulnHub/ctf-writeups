@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 ZOR"
-date: 2014-11-07 05:39:49 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 ZOR is a 50 point Cryptography challenge. You are provided with a encrypted file and the password encryption method in ZOR.py

@@ -1,12 +1,3 @@
----
-layout: post
-title: "BSides Vancouver 2015 Delphi"
-date: 2015-03-18 19:19:44 -0400
-author: [barrebas,swappage]
-comments: true
-categories: [bsides vancouver]
----
-
 ### Solved by barrebas, Swappage
 
 This 200 points challenge revolved around a binary written in *go*, for me and Bas this was our first attempt to exploit a Go binary, and was a resulted being a lot of fun :)

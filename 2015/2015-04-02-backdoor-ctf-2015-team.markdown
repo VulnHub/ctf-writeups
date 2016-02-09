@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 Team"
-date: 2015-04-02 16:17:21 -0400
-author: [barrebas]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by barrebas
 
 Backdoor CTF was hosted on a weekday, so we only had the evening to grab as many flags as we could. Here's how we solved `team` for 600 points.

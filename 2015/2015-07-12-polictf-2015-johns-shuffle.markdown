@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 John's Shuffle"
-date: 2015-07-12 17:22:29 -0400
-author: [barrebas]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas
 
 John's Shuffle was a 350 point pwnable for PoliCTF 2015. Here's how I cracked it!

@@ -1,12 +1,3 @@
----
-layout: post
-title: "PlaidCTF 2015 EBP"
-date: 2015-04-19 21:27:52 -0400
-author: [superkojiman,et0x]
-comments: true
-categories: [plaidctf]
----
-
 ### Solved by superkojiman and et0x
 
 superkojiman here; this pwnable challenge was essentially an echo server. Anything we sent to it was sent right back to us. The code was really simple, and there was no NX on the binary which meant we could execute shellcode on the stack. et0x and I quickly found that it was vulnerable to a format string attack when snprintf() was called in the make_response() function:

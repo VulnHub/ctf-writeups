@@ -1,12 +1,3 @@
----
-layout: post
-title: "Boston Key Party 2015 Northeastern University"
-date: 2015-03-18 09:11:14 -0400
-author: [barrebas]
-comments: true
-categories: [boston key party]
----
-
 ### Solved by barrebas
 
 This web challenge sports another login that we need to bypass. The source code is given and features this password check:

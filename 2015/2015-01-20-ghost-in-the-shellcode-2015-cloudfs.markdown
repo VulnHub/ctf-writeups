@@ -1,12 +1,3 @@
----
-layout: post
-title: "Ghost In The Shellcode 2015 Cloudfs"
-date: 2015-01-20 12:01:40 -0500
-author: [swappage]
-comments: true
-categories: [ghostintheshellcode]
----
-
 ### Solved by Swappage
 
 This CTF was what I'd call *an humbling experience*; it was an absolutely great

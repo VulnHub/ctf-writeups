@@ -1,12 +1,3 @@
----
-layout: post
-title: "Boston Key Party 2015 Symphony"
-date: 2015-03-18 09:14:51 -0400
-author: [barrebas]
-comments: true
-categories: [boston key party]
----
-
 ### Solved by barrebas
 
 We knew BKP would be tough, but they are asking us to find a SHA1 hash collision!

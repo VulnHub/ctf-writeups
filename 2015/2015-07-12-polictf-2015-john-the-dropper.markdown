@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 John The Dropper"
-date: 2015-07-12 17:19:12 -0400
-author: [barrebas,superkojiman, swappage]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas, superkojiman, and Swappage
 
 John the Dropper was an interesting 100 point challenge. I'd love to see how it was implemented!

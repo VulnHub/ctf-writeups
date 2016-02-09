@@ -1,12 +1,3 @@
----
-layout: post
-title: "9447 CTF Rolling"
-date: 2014-12-03 02:39:35 -0500
-author: [barrebas]
-comments: true
-categories: [9447]
----
-
 ### Solved by barrebas
 
 The last flag for 9447 CTF that I got was this binary reversing challenge. Let's get `rolling`!

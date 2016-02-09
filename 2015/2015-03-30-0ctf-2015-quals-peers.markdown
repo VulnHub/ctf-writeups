@@ -1,12 +1,3 @@
----
-layout: post
-title: "0CTF 2015 Quals Peers"
-date: 2015-03-30 19:56:37 -0400
-author: [swappage]
-comments: true
-categories: [0ctf]
----
-
 ### Solved by Swappage
 
 in *Peers* we were given a pcap file, and our objective was to extract the flag from it

@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 PRNG Service"
-date: 2015-09-20 23:39:32 -0400
-author: [superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by superkojiman
 
 Connect to the service and it generates 64 random numbers. If we look at the source code provided, the flag is stored at rnd[0]:

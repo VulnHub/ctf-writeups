@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Nevernote"
-date: 2014-11-07 20:20:17 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Nevernote is a 180 point challenge. 

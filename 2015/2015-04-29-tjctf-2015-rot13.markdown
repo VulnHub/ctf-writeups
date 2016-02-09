@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 ROT13"
-date: 2015-04-29 02:25:40 -0400
-author: [superkojiman]
-comments: true
-categories: [tjctf]
----
-
 ### Solved by superkojiman
 
 We're provided access to a shell server where we find a SUID rot13 binary called rot13. As the name suggests, the binary will take input, ROT13 encode it, and then print out the result. We're also provided the code. If we look closely, we see that the ROT13 implementation is a bit weird.

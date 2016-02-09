@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Shooting"
-date: 2014-12-24 14:20:55 -0500
-author: [historypeats]
-comments: true
-categories: [advent]
----
-
 >> Get 10000 pt. This game is really hard, and so you can crack it.
 >> http://adctf2014.katsudon.org/dat/JEZSnwooVJRYDRzt/shooting.html
 

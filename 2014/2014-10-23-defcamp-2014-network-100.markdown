@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCamp 2014 Network 100"
-date: 2014-10-23 11:38:40 -0400
-author: [barrebas]
-comments: true
-categories: [defcamp]
----
-
 ### Solved by barrebas
 
 For this challenge, we're given the following clue:

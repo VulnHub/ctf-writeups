@@ -1,12 +1,3 @@
----
-layout: post
-title: "ASIS CTF Finals Important Day"
-date: 2014-10-23 15:28:16 -0400
-author: [swappage]
-comments: true
-categories: [asis]
----
-
 ### Solved by Swappage
 
 I'M LAAAATE!!

@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Toaster Control"
-date: 2014-11-09 19:50:05 -0500
-author: [et0x]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by et0x
 
 Toaster Control is a 50 point web exploitation challenge. 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "SU-CTF 2014 ReverseMe"
-date: 2014-10-07 20:15:00 -0400
-author: [superkojiman, barrebas]
-comments: true
-categories: [sharif]
----
-
 ### Solved by superkojiman and barrebas
 
 This is a 200 point reversing challenge for Sharif CTF 2014 called ReverseMe.exe. The hint for this challenge is:

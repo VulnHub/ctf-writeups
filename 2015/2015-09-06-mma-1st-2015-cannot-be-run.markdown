@@ -1,12 +1,3 @@
----
-layout: post
-title: "MMA 1st 2015 Cannot Be Run"
-date: 2015-09-06 19:53:32 -0400
-author: [superkojiman]
-comments: true
-categories: [mma]
----
-
 ### Solved by superkojiman
 
 The MZ signature is invalid. Just replace the first 232 bytes of the binary with a valid MZ signature and save the file with a .exe extension. 

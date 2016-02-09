@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Overflow 2"
-date: 2014-11-07 19:56:13 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Overflow 2 is a 70 point binary exploitation challenge. 

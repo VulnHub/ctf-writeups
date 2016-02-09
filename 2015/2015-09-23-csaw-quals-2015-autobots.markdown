@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Autobots"
-date: 2015-09-23 19:17:29 -0400
-author: [superkojiman, barrebas, swappage]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman, barrebas, and Swappage
 
 This was a 350 point challenge that barrebas, Swappage, and I tackled

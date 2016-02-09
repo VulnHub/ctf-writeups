@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 Crack Me If You Can"
-date: 2015-07-12 17:17:20 -0400
-author: [barrebas]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas
 
 Crack Me If You Can involved one of my least favorite things: Android APKs!

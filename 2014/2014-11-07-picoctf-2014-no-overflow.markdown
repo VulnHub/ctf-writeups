@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 No Overflow"
-date: 2014-11-07 20:21:04 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 No Overflow is a 140 point challenge. 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "CampCTF 2015 Shell"
-date: 2015-08-19 21:00:09 -0400
-author: [barrebas]
-comments: true
-categories: [campctf]
----
-
 ### Solved by barrebas
 
 shell was a pwnable from CAMP CTF. We're given a 64-bit ELF binary, which shows the following when executed:

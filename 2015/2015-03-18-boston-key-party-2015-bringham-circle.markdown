@@ -1,12 +1,3 @@
----
-layout: post
-title: "Boston Key Party 2015 Bringham Circle"
-date: 2015-03-18 09:20:05 -0400
-author: [NullMode]
-comments: true
-categories: [boston key party]
----
-
 ### Solved by NullMode
 
 We were able to get the the source code for this challenge by requesting ```index.txt``` on the web server. Turned out to have some funky checks being made:

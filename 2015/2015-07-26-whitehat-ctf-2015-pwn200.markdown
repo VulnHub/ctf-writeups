@@ -1,12 +1,3 @@
----
-layout: post
-title: "WhiteHat CTF 2015 Pwn200"
-date: 2015-07-26 12:55:14 -0400
-author: [superkojiman,barrebas,et0x]
-comments: true
-categories: [whitehat]
----
-
 ### Solved by superkojiman, barrebas, and et0x
 
 We're given a 32-bit binary and a copy of libc.so.6 used on the target. A disassembly of the binary showed an obvious buffer overflow: 

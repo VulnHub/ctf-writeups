@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Javascrypt"
-date: 2014-11-07 19:50:05 -0500
-author: [et0x]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by et0x
 
 Javascrypt is a 40 point reverse engineering challenge. 

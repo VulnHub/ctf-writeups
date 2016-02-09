@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 CrudeCrypt"
-date: 2014-11-07 20:07:07 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Crudecrypt is a 180 point challenge. 

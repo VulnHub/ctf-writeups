@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 Smashing The Stack For Fun And Profit"
-date: 2015-09-20 23:42:46 -0400
-author: [superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by superkojiman
 
 Connect to the server and we get:

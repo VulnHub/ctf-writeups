@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 DroidApp"
-date: 2014-11-07 19:52:31 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Droid App is an 80 point forensics challenge. 

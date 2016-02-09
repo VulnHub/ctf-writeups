@@ -1,12 +1,3 @@
----
-layout: post
-title: "TJCTF 2015 Destruct"
-date: 2015-04-29 01:46:38 -0400
-author: [superkojiman]
-comments: true
-categories: [TJCTF]
----
-
 ### Solved by superkojiman
 
 Connecting to the target returns a menu: 

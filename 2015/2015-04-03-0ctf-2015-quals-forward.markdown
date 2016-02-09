@@ -1,12 +1,3 @@
----
-layout: post
-title: "0CTF 2015 Quals Forward"
-date: 2015-04-03 23:22:22 -0400
-author: [swappage]
-comments: true
-categories: [0ctf]
----
-
 ### Solved by Swappage
 
 Forward was fun, a nice web challenge involving some lateral thinking and php source analysis.

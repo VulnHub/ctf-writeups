@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 RoboPhoto"
-date: 2014-11-07 04:50:17 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 RoboPhoto is a 30 point Miscellaneous challenge. You are provided with a poster or an image to search for the password.

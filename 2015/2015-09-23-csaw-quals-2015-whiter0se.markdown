@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 whiter0se"
-date: 2015-09-23 19:17:29 -0400
-author: [superkojiman]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman
 
 Download yet another "episode" of Mr. Robot. 

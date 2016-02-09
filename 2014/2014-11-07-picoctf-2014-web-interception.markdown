@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Web Interception"
-date: 2014-11-07 20:22:13 -0500
-author: [barrebas, swappage]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas and Swappage
 
 Web Interception is a 140 point challenge. 

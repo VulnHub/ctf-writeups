@@ -1,12 +1,3 @@
----
-layout: post
-title: "Hack.lu 2014 Wild Wild Web"
-date: 2014-10-26 22:20:58 -0400
-author: [Swappage, barrebas]
-comments: true
-categories: [hack.lu]
----
-
 ### Solved by Swappage and barrebas
 
 Image upload was a web challenge for the hack.lu CTF, providing a login form, and the possibility to upload images.

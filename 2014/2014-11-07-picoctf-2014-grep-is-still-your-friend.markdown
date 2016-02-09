@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Grep is Still Your Friend"
-date: 2014-11-07 04:36:02 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 Grep is your friend is a 40 point forensics challenge. You are required to search a key for a particular file.

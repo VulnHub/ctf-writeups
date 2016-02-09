@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Tick Tock"
-date: 2014-11-07 20:35:07 -0500
-author: [swappage]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by Swappage
 
 Math, math, and more math! :)

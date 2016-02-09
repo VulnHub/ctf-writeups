@@ -1,12 +1,3 @@
----
-layout: post
-title: "RingZer0 2015 CTF Shellcoding"
-date: 2015-02-12 01:38:30 -0500
-author: [barrebas]
-comments: true
-categories: [ringzer0]
----
-
 ### Solved by barrebas
 
 [RingZer0Team](http://ringzer0team.com) is hosting a long-term CTF. The shellcoding challenges presented a very nice set of challenges. It was really fun **and** I learned a ton about 64-bit shellcoding while solving them!

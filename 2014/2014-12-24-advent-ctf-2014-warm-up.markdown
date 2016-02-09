@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Warm Up"
-date: 2014-12-24 13:46:09 -0500
-author: [bitvijays]
-comments: true
-categories: [advent]
----
-
 ### Solved by bitvijays
 This Misc challenge was very easy, we were provided with a number in hex which needs to be converted in to ascii.
 

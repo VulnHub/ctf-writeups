@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Cyborg Secrets"
-date: 2014-11-07 19:51:53 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Cyborg Secrets is an 80 point reverse engineering challenge. 

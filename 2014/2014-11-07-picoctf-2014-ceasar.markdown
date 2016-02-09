@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Ceasar"
-date: 2014-11-07 20:55:40 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 Ceasar is a 20 point cryptography challenge. This is another one of the easy ones. 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCon 2015 Quals r0pbaby"
-date: 2015-05-29 18:47:24 -0400
-author: [barrebas,swappage]
-comments: true
-categories: [defcon]
----
-
 ### Solved by barrebas and Swappage
 
 `r0pbaby` was a binary exploitation challenge in the LegitBS CTF. We were given a binary and a place to connect to. Upon running and examing the binary, it seems like this is a very easy ROP challenge. The binary will give libc function addresses upon request; this makes it easy to defeat ASLR. The option of getting libc's base address seems to return some strange address. Finally, the third option asks for a buffer, which is then copied to the stack, overwrites the saved return address and basically kicks off our ROP chain... couldn't be easier, right? 

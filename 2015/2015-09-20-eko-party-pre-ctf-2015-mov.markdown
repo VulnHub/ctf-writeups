@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 MOV"
-date: 2015-09-20 23:47:55 -0400
-author: [superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 32-bit binary. If we check out the disassembly we see that it's composed mostly of mov instructions (hence the name, MOV). Run it:
 
 ```

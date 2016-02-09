@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 Decode It"
-date: 2015-09-20 23:46:05 -0400
-author: [superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by superkojiman
 
 This is an ARM binary. I decompiled it using [Retargetable Decompiler](https://retdec.com/decompilation/) to get the following for main():

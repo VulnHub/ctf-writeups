@@ -1,12 +1,3 @@
----
-layout: post
-title: "31C3 CTF 2014 CFY"
-date: 2014-12-29 08:30:33 -0500
-author: [barrebas]
-comments: true
-categories: [31c3]
----
-
 ### Solved by barrebas
 
 Let's have a look at 31C3's `cfy`. We're given the binary and a place to connect to. Upon connecting with `nc`, we see the following:

@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Lawn Care Simulator"
-date: 2015-09-23 19:17:29 -0400
-author: [swappage]
-comments: true
-categories: [csaw]
----
-
 ### Solved by Swappage
 
 This 200 points challenge was a web application running a nicely useless javascript for "growing lawn", and was providing all the typical features available in a standard web application, including registration and login.

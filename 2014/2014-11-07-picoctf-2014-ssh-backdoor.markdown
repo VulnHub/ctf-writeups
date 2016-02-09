@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 SSH Backdoor"
-date: 2014-11-07 20:00:18 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 SSH Backdoor is a 100 point forensics challenge. 

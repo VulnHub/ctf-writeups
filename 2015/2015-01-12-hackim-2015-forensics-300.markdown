@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Forensics 300"
-date: 2015-01-12 13:03:39 -0500
-author: [bitvijays]
-comments: true
-categories: [hackim]
----
-
 ###Solved by bitvijays
 
 >Find the hidden key

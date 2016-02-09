@@ -1,12 +1,3 @@
----
-layout: post
-title: "ASIS CTF Finals Lion Cub"
-date: 2014-10-13 15:14:15 -0400
-author: [superkojiman, barrebas]
-comments: true
-categories: [asis]
----
-
 ### Solved by superkojiman and barrebas
 
 Lion Cub is a 200 point reversing challenge for the ASIS CTF Finals 2014. A file called simple_f0455e55c1d236a28387d04d5a8672ad was provided for download, along with the following description:

@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW 2014 csaw2013reversing2.exe"
-date: 2014-10-07 20:08:28 -0400
-author: [superkojiman]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman
 
 Time to switch to a Windows VM for this one. A binary csaw2013reversing2.exe is provided along with the following hint:

@@ -1,12 +1,3 @@
----
-layout: post
-title: "Backdoor CTF 2015 Echo"
-date: 2015-04-02 13:37:38 -0400
-author: [superkojiman]
-comments: true
-categories: [backdoor]
----
-
 ### Solved by superkojiman
 
 We're given 32-bit ELF binary that acts as an echo server. We can run it and it just echoes back whatever we type in: 

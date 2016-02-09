@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 RSA Mistakes"
-date: 2014-11-07 19:47:06 -0500
-author: [swappage]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by Swappage
 
 RSA Mistakes was a 200 points cryptography master challenge in picoCTF.

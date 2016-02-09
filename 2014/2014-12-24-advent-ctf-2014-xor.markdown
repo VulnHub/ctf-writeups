@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 XOR"
-date: 2014-12-24 13:49:25 -0500
-author: [bitvijays]
-comments: true
-categories: [advent]
----
-
 ### Solved by bitvijays with special thanks to Swappage
 
 In this crypto challenge, we are provided a encrypted output and a code which was used to encrypt it.

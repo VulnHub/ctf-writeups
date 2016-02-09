@@ -1,12 +1,3 @@
----
-layout: post
-title: "CampCTF 2015 Bitterman"
-date: 2015-08-19 20:58:40 -0400
-author: [barrebas, swappage, superkojiman]
-comments: true
-categories: [campctf]
----
-
 ### Solved by barrebas, Swappage, superkojiman
 
 I rolled into the CampCTF while Swappage was already working on it. He had started on bitterman, a 400 point challenge. 

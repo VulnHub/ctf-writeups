@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 PNG Or Not"
-date: 2014-11-07 08:31:49 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 PNG or Not is a 100 point forensics challenge. You are provided with a image.png file.

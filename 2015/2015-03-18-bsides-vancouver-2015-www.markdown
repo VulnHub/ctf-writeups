@@ -1,12 +1,3 @@
----
-layout: post
-title: "BSides Vancouver 2015 WWW"
-date: 2015-03-18 19:17:55 -0400
-author: [barrebas]
-comments: true
-categories: [bsides vancouver]
----
-
 ### Solved by barrebas
 
 After solving `sushi`, there were plenty of pwnables left to choose from. Next up was `www`!

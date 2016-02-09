@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Alexander Taylor"
-date: 2015-09-23 19:17:29 -0400
-author: [superkojiman, bitvijays]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman and bitvijays
 
 The recon challenge starts at [http://fuzyll.com/csaw2015/start](http://fuzyll.com/csaw2015/start)

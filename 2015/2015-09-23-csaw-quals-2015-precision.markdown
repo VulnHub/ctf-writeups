@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Precision"
-date: 2015-09-23 19:17:29 -0400
-author: [superkojiman]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman
 
 We're given a 32-bit binary. The decompiled main() function looks simple:

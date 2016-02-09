@@ -1,12 +1,3 @@
----
-layout: post
-title: "the3jackers 2015 Steg100"
-date: 2015-01-24 09:18:46 -0500
-author: [superkojiman]
-comments: true
-categories: [th3jackers]
----
-
 ### Solved by superkojiman
 
 The file has no extension, but a quick check with the file command shows it's a jpeg:

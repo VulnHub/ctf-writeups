@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 LoginPage"
-date: 2014-12-30 11:51:45 -0500
-author: [historypeats]
-comments: true
-categories: [advent]
----
-
 ### Solved by historypeats
 
 >You can't guess LOGINPAGE_SECRET absolutely, it's not answer. So, maybe there are some vulnerability and you got an admin and flag.

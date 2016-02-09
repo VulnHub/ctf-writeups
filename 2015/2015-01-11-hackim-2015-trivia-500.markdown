@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Trivia 500"
-date: 2015-01-11 18:06:45 -0500
-author: [superkojiman]
-comments: true
-categories: [hackim]
----
-
 ### Solved by superkojiman
 
 A 500 point question with the following description:

@@ -1,12 +1,3 @@
----
-layout: post
-title: "BCTF 2015 Zhonguancun"
-date: 2015-03-24 11:41:55 -0400
-author: [barrebas]
-comments: true
-categories: [bctf]
----
-
 ### Solved by barrebas
 
 We're entering a CTF almost every weekend now, but they've been really tough. I did not manage to exploit this challenge in time, but one day after the CTF ended I had an epiphany and got my exploit working. I figured I'd share how I approached this challenge for future reference. 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Overflow1"
-date: 2014-11-09 19:50:05 -0500
-author: [et0x]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by et0x
 
 Overflow1 is a 50 point binary exploitation challenge.

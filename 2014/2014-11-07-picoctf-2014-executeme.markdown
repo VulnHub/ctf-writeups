@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 ExecuteMe"
-date: 2014-11-07 19:53:28 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 ExecteMe is an 80 point binary exploitation challenge. 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Paths"
-date: 2014-12-24 14:05:07 -0500
-author: [superkojiman]
-comments: true
-categories: [advent]
----
-
 ### Solved by superkojiman
 
 This is day 6 of the Advent CTF 2014 challenge. We're given a python script called paths.py with the following clue: 

@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW 2014 Eggshells"
-date: 2014-10-07 20:05:49 -0400
-author: [superkojiman]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman
 
 This challenge is worth 100 points and we're given a zip file called eggshells-master.zip along with the following hint:

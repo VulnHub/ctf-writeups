@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCamp 2014 Web 300"
-date: 2014-10-23 11:48:43 -0400
-author: [barrebas]
-comments: true
-categories: [defcamp]
----
-
 ### Solved by barrebas
 
 We are again given an ip address. Upon visiting, it turns out to be some rudimentary page. I immediately spotted a LFI vulnerability, surfing to `http://10.13.37.13/?page=../../../../../../etc/passwd`:

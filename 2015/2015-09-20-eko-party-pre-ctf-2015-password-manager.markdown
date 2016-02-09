@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 Password Manager"
-date: 2015-09-20 23:33:36 -0400
-author: [NullMode]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by NullMode
 
 Password Safe 3 file. Got the hash using John's pwsafe2john:

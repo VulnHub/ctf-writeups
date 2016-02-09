@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 Login"
-date: 2015-09-20 23:41:08 -0400
-author: [superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by superkojiman
 
 The program asks for username and password. If we check the disassembly we see that the guest username is "charly" and the guest password is "h4ckTH1s". After it does a strncmp() on the credentials it checks if a certain variable is 1. If it is, we get the flag:

@@ -1,12 +1,3 @@
----
-layout: post
-title: "WhiteHat CTF 2015 Pwn100"
-date: 2015-07-25 20:43:22 -0400
-author: [barrebas, superkojiman]
-comments: true
-categories: [whitehat]
----
-
 ### Solved by barrebas and superkojiman
 
 This CTF lasted only twelve hours. This pwnable was worth 100 points but could've been way more! We're given a zip file containing a binary and the correspondig libc.so. How nice!

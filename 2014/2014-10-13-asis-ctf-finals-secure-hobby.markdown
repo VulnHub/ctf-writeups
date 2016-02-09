@@ -1,12 +1,3 @@
----
-layout: post
-title: "ASIS CTF Finals Secure Hobby"
-date: 2014-10-13 23:51:25 -0400
-author: [barrebas]
-comments: true
-categories: [asis]
----
-
 ### Solved by barrebas
 
 For Secure Hobby, a 250 point challenge, we where given a file and a place to connect to. The archive contained a binary, which looked okay enough to run. It opened a port on localhost. Upon connecting using ```nc```, the program first crashes because it can't find ```flag``` and ```namak```. After creating those files and connecting again, we are presented with the following:

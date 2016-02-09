@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Contacts"
-date: 2015-09-23 19:17:29 -0400
-author: [barrebas]
-comments: true
-categories: [csaw]
----
-
 ### Solved by barrebas 
 
 This CTF marked our team's anniversary! We managed to pop this pwnable. 

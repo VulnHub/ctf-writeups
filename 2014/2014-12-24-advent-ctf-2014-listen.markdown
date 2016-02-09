@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Listen"
-date: 2014-12-24 13:46:46 -0500
-author: [bitvijays]
-comments: true
-categories: [advent]
----
-
 ### Solved by bitvijays
 
 This Misc challenge provides you a wav file.

@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Netsino"
-date: 2014-11-07 20:13:54 -0500
-author: [barrebas]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by barrebas
 
 Netsino is a 120 point challenge. 

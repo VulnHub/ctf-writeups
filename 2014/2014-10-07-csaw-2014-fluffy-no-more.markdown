@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW 2014 fluffy no more"
-date: 2014-10-07 19:54:21 -0400
-author: [swappage]
-comments: true
-categories: [csaw]
----
-
 ### Solved by Swappage
 
 The CSAW CTF 2014 wasn't only exploitation and reverse engineering, within the challenges a whole category was focused on forensics puzzles.

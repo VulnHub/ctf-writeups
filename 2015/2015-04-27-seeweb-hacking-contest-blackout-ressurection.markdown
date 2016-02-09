@@ -1,12 +1,3 @@
----
-layout: post
-title: "Seeweb Hacking Contest: Blackout Ressurection"
-date: 2015-04-27 14:42:05 -0400
-author: [swappage]
-comments: true
-categories: [seeweb]
----
-
 ### Solved by Swappage
 
 During the past two weeks, an italian ISP: seeweb, held a 2 weeks hacking contest, it was similar to the vulnhub boot to root VMs, more then to a CTF, except that it was involving more targets hosted by the ISP itself.

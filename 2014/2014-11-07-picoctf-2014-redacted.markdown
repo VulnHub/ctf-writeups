@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Redacted" 
-date: 2014-11-07 10:17:27 +0000
-author: [bitvijays]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by bitvijays
 
 In the excercise, you are given a PDF, but important information is hidden somehow.

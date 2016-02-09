@@ -1,12 +1,3 @@
----
-layout: post
-title: "Boston Key Party 2015 Museum"
-date: 2015-03-18 09:05:35 -0400
-author: [barrebas]
-comments: true
-categories: [boston key party]
----
-
 ### Solved by barrebas
 
 This challenge required us to input the next number in a seemingly random sequence of numbers. Upon inspection of the source code, the random numbers are not so random at all: the seed value is limited to roughly 20,000. I wrote a small script in `php` to generate the list of numbers for each seed value:

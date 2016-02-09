@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 And The Prophet Said"
-date: 2015-07-12 17:16:25 -0400
-author: [barrebas]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas
 
 And the Prophet Said was a 100 point crypto challenge.

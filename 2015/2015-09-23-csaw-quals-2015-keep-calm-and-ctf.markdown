@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 Keep Calm and CTF"
-date: 2015-09-23 19:17:29 -0400
-author: [bitvijays]
-comments: true
-categories: [csaw]
----
-
 ### Solved by bitvijays
 
 In this forensic challenge, we were provided with and image which said "Keep Calm and CTF". This challenge was pretty easy, we could solve it just by using file command or exiftool on the image.

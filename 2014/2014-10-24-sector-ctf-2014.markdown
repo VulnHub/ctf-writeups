@@ -1,12 +1,3 @@
----
-layout: post
-title: "SecTor CTF 2014"
-date: 2014-10-24 02:00:57 -0400
-author: [superkojiman]
-comments: true
-categories: [sector]
----
-
 ### Solved by superkojiman
 
 [SecTor](http://sector.ca) is an annual security conference held in Toronto. When I heard that the CTF would be back, I signed the team up under our old monicker buhnluv (VulnHub backwards). There was a minimum of 2 players per team, and a maximum of 5. I was initially going to be tackling the challenges with palor from #vulnhub and his co-worker, but unfortunately they were called into work and so I was on my own. 

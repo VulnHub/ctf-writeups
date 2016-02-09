@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 QR Garden"
-date: 2014-12-24 14:00:34 -0500
-author: [swappage]
-comments: true
-categories: [advent]
----
-
 ### Solved by Swappage
 
 Why bother with programming skillz when you can get the same result with a couple of bash commands and memory greedy tools?

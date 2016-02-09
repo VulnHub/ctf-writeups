@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Oh My Scanf"
-date: 2014-12-24 14:22:07 -0500
-author: [barrebas,swappage,superkojiman]
-comments: true
-categories: [advent]
----
-
 ### Solved by barrebas, swappage, superkojiman
 
 Another month, another CTF! This Advent CTF runs almost the entire month of December. This challenge seemed easy at first, but turned out to be a bit more tricky!

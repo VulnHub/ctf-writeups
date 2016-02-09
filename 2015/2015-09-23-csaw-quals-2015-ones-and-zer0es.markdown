@@ -1,12 +1,3 @@
----
-layout: post
-title: "CSAW Quals 2015 ones_and_zer0es"
-date: 2015-09-23 19:17:29 -0400
-author: [superkojiman]
-comments: true
-categories: [csaw]
----
-
 ### Solved by superkojiman
 
 "Video" file with a title from Mr. Robot: eps1.1_ones-and-zer0es_c4368e65e1883044f3917485ec928173.mpeg

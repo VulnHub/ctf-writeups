@@ -1,12 +1,3 @@
----
-layout: post
-title: "EMC Defender League 2015"
-date: 2015-02-26 00:22:37 -0500
-author: [bitvijays]
-comments: true
-categories: [emc]
----
-
 ### Solved by bitvijays
 
 Vulnhub-ctf team played in the Hack IM 2015 and we ended up at 22nd position and got a chance to go onsite @ Nullcon Goa. As bitvijays is in India, he represented the team at Goa. It was 3 hour challenge with a test round. However, a lot of time was spent in setting up the VMs and networks. We were provided a virtual machine image running Ubuntu Operating system with some vulnerable services with the correct source code and modified source code. There was also a goodies server hosting flags for extra points. We had to run a player-ident binary which would identify us from others. There were total of 30 rounds, a bot would connect to all the services open at some time and provide you points if the service responded. 100 points for each services.

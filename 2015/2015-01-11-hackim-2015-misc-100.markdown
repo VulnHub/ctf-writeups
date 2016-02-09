@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Misc 100"
-date: 2015-01-11 18:05:02 -0500
-author: [superkojiman]
-comments: true
-categories: [hackim]
----
-
 ### Solved by superkojiman
 
 A 100 point challenge with the following description: 

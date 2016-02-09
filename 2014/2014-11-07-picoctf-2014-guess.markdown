@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Guess"
-date: 2014-11-07 19:41:54 -0500
-author: [swappage]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by Swappage
 
 Guess was a basic 75 points binary exploitation challenge in picoCTF 2014

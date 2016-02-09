@@ -1,12 +1,3 @@
----
-layout: post
-title: "PoliCTF 2015 Hanoi As A Service"
-date: 2015-07-12 17:18:36 -0400
-author: [barrebas]
-comments: true
-categories: [polictf]
----
-
 ### Solved by barrebas
 
 Hanoi As A Service was a 50 point pwnable in PoliCTF and gave me a reason to hate PROLOG.

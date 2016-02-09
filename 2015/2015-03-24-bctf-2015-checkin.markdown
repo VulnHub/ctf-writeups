@@ -1,12 +1,3 @@
----
-layout: post
-title: "BCTF 2015 Checkin"
-date: 2015-03-24 11:46:50 -0400
-author: [superkojiman]
-comments: true
-categories: [bctf]
----
-
 ### Solved by superkojiman
 
 We joined in BCTF at the last minute, but managed to solve 3 challenges. Checkin was basically a freebie. The hint was to check-in at the #bctf IRC channel on Freenode. In doing so I noticed the topic had the following string: OPGS{jr1p0zr-g0-OPGS-2015_t00q-yhpx}

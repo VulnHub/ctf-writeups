@@ -1,12 +1,3 @@
----
-layout: post
-title: "DefCon 2015 Quals babycmd"
-date: 2015-05-18 12:09:01 -0400
-author: [superkojiman]
-comments: true
-categories: [defcon]
----
-
 ### Solved by superkojiman
 
 babycmd is a 1 point challenge. Connecting to the specified server presents the following menu: 

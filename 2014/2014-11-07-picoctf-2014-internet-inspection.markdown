@@ -1,12 +1,3 @@
----
-layout: post
-title: "picoCTF 2014 Internet Inspection"
-date: 2014-11-07 19:54:48 -0500
-author: [superkojiman]
-comments: true
-categories: [picoctf]
----
-
 ### Solved by superkojiman
 
 Internet Inspection is a 30 point web exploitation challenge. 

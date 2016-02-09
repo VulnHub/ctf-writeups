@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Web 500"
-date: 2015-01-11 16:35:24 -0500
-author: [et0x]
-comments: true
-categories: [hackim]
----
-
 ### Solved by et0x
 
 The only hint you get for this challenge is `Break the Captcha!`, and upon visiting the page provided, you are present with the following page:

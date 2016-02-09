@@ -1,12 +1,3 @@
----
-layout: post
-title: "Advent CTF 2014 Rotate"
-date: 2014-12-24 14:25:01 -0500
-author: [barrebas]
-comments: true
-categories: [advent]
----
-
 ### Solved by barrebas
 
 A crypto challenge! We're given a zip-file, containing `flag.jpg.enc` and `rotate.py`.

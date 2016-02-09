@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF 2015 SAFEBOX"
-date: 2015-09-21 18:35:45 -0400
-author: [swappage]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by Swappage
 
 This 200 points challenge was a really nice javascript and client-side security related task.

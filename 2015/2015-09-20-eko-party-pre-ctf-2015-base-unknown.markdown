@@ -1,12 +1,3 @@
----
-layout: post
-title: "Eko Party Pre-CTF BASE Unknown"
-date: 2015-09-20 23:26:02 -0400
-author: [superkojiman]
-comments: true
-categories: [ekoparty]
----
-
 ### Solved by superkojiman
 
 We're given the following string:

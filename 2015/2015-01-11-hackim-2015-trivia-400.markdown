@@ -1,12 +1,3 @@
----
-layout: post
-title: "HackIM 2015 Trivia 400"
-date: 2015-01-11 16:24:50 -0500
-author: [et0x]
-comments: true
-categories: [hackim]
----
-
 ### Solved by et0x
 
 This challenge presents the following hint for you to follow:
