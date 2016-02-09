@@ -14,7 +14,7 @@ in *Peers* we were given a pcap file, and our objective was to extract the flag 
 By looking at the traffic in wireshark, and examining the streams, it really looked obvious that
 it was bittorrent unencrypted traffic.
 
-{% img center /images/2015/0ctf/peers/tcpstream.png %}
+![](/images/2015/0ctf/peers/tcpstream.png)
 
 Wireshark/Tshark has a dissector for the bittorrent protocol, but in this specific case it
 wasn't detecting the protocol correctly because the communication was running on port 80 (HTTP),
@@ -28,7 +28,7 @@ tcp connections on port 80 to 6881.
 As a result, we have a wonderful pcap file containing the bittorrent traffic, correctly dissected
 by wireshark.
 
-{% img center /images/2015/0ctf/peers/dissected.png %}
+![](/images/2015/0ctf/peers/dissected.png)
 
 What was left to do was to extract the payload and reassemble it.
 
@@ -79,5 +79,5 @@ The result is a bitmap image
 
 that contains the flag
 
-{% img center /images/2015/0ctf/peers/flag.png %}
+![](/images/2015/0ctf/peers/flag.png)
 

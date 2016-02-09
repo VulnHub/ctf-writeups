@@ -17,15 +17,15 @@ upx.exe: PE32 executable (GUI) Intel 80386, for MS Windows
 ```
 Executing it in Windows XP provided us with Error Dialog
 
-{% img left /images/2015/hackim/reversing200/upx1.png %}
+{% img left /images/2015/hackim/reversing200/upx1.png)
 
 Searching Google for Reversing Engineering with Ollydbg resulted in <a href="http://resources.infosecinstitute.com/reverse-engineering-ollydbg/">Reverse Engineering with OllyDbg</a>. Following the step in the guide i.e Viewing the call stack (Alt-K), show call etc. We reached to the point where the Error Message Dialog Box is called. It has a interesting string "-pl34se-give-me-th3-k3y", it also has kernel32.GetCommandLineA. Maybe it read the command line arguments and need "-pl34se-give-me-th3-k3y"
 
-{% img /images/2015/hackim/reversing200/upx2.png %}
+{% img /images/2015/hackim/reversing200/upx2.png)
 
 Scrolling up the code we found that there is a check of IsDebuggerPresent also there is a code to output the flag as a debug(kernel32.OutputDebugStringA) and messagebox with String "Since you asked nicely...here you go".
 
-{% img /images/2015/hackim/reversing200/upx3.png %}
+{% img /images/2015/hackim/reversing200/upx3.png)
 
 If we check the second image, there are commands 
 ```
@@ -35,7 +35,7 @@ If we check the second image, there are commands
 08001169   EB 14            JMP SHORT 0800117F
 ```
 First part of analysis is done, Now we need to reach this code, let's try to put a breakpoint at 0x8001160 and we get a warning, maybe because the code is generated at runtime
-{% img /images/2015/hackim/reversing200/upx4.png %}
+{% img /images/2015/hackim/reversing200/upx4.png)
 
 So the way to reach this code is to do Step In (F7) and Step Over (F8). With multiple running of instances, testing and putting multiple breakpoints, a statement at 0x00401686 CALL EAX takes the execution at 0x8001536
 ```
@@ -68,7 +68,7 @@ We get to the Debugoutput
 ```
 080010E5   FF15 04A00008    CALL DWORD PTR DS:[800A004]              ; kernel32.OutputDebugStringA
 ``` and got the flag
-{% img /images/2015/hackim/reversing200/upx5.png %}
+{% img /images/2015/hackim/reversing200/upx5.png)
 
 The flag is **flag{s1mpl3-c0mpr3ss10n-f0r-fun&p}**
 

@@ -103,5 +103,5 @@ plt.show()
 
 and to be honest i was quiet surprised myself when i figured out that it worked :)
 
-{% img center /images/2015/0ctf/xyz/flag.png %}
+![](/images/2015/0ctf/xyz/flag.png)
 

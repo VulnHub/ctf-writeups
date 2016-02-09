@@ -103,11 +103,11 @@ Let's set up socat and give it a try
 
 i sent the following request to the web server
 
-{% img center /images/2015/0ctf/forward/burp.png %}
+![](/images/2015/0ctf/forward/burp.png)
 
 and the webserver connected to me as a stepping stone for connecting to the backend database, giving me a chance to sniff all the traffic and read the flag in clear text
 
-{% img center /images/2015/0ctf/forward/flag.png %}
+![](/images/2015/0ctf/forward/flag.png)
 
 The flag is
 

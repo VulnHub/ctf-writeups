@@ -13,7 +13,7 @@ In this 400 points problem we were asked to buy a Nullcon pass for free.
 
 by opening the web page we were presented with the following scenario
 
-{% img center /images/2015/hackim/web400/webpage.png %}
+![](/images/2015/hackim/web400/webpage.png)
 
 and by clicking the buy button the following form was submitted
 

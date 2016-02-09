@@ -22,7 +22,7 @@ something that was used to transfer a file, and by opening a pcap all i could se
 were some HTTP traffic packets to wikipedia, and loots and loots of ICMP ping
 requests/responses.
 
-{% img center /images/2015/gits/cloudfs/pings.png %}
+![](/images/2015/gits/cloudfs/pings.png)
 
 Before diving into the pcap itself i ran through some usual checks you do to spot
 obvious things, and after having verified that nothing was appended at the bottom of
@@ -34,12 +34,12 @@ I figured out pretty quickly that the icmp packets could have been used as a cov
 to hide something, and in fact if we look at the payload data from a couple of random
 icmp requests we could easly notice that the ping pattern was containing custom data.
 
-{% img center /images/2015/gits/cloudfs/apples.png %}
+![](/images/2015/gits/cloudfs/apples.png)
 
 The interesting things start at packet 1040 in the pcap file, where we can see
 the header for a bzip2 file
 
-{% img center /images/2015/gits/cloudfs/bz2.png %}
+![](/images/2015/gits/cloudfs/bz2.png)
 
 which was repeating onwards every 4 packets till the end of the pcap file.
 
@@ -74,7 +74,7 @@ order, and that it was necessary to reorder them properly.
 
 In fact, let's look at the icmp packet identifier.
 
-{% img center /images/2015/gits/cloudfs/identifier.png %}
+![](/images/2015/gits/cloudfs/identifier.png)
 
 Here it's possible to notice that the identifier are ordered as 13 14 16 15
 

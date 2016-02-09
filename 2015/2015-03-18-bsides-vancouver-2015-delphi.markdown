@@ -64,7 +64,7 @@ which suggested that the third argument should be a number, and that something n
 
 *libtwenty.so*, as said earlier, is the library that contains the *check_answer()* function, and here is how it looks, both in block diagram and disassembled code.
 
-{% img center /images/2015/bsides_vancouver/delphi/check_answer_diagram.png %}
+![](/images/2015/bsides_vancouver/delphi/check_answer_diagram.png)
 
 ```
 Dump of assembler code for function check_answer:
@@ -148,7 +148,7 @@ To do that we pick the highest possible int value and calculate the following
 
 and as expected the jump is not taken, leading us to the branch of code that will result in arbitrary code execution via system().
 
-{% img center /images/2015/bsides_vancouver/delphi/gdb.png %}
+![](/images/2015/bsides_vancouver/delphi/gdb.png)
 
 By forcing the value of RAX to be 4, when the following instruction is executed
 

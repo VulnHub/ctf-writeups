@@ -53,4 +53,4 @@ For those curious of how brainfuck works, the following link explains it well: h
 
 Also, I've made an animation to help people get the jist of how the different operators work.  Hope this helps someone!
 
-{% img center /images/2015/hackim/forensics200/bf-explanation.gif %}
+![](/images/2015/hackim/forensics200/bf-explanation.gif)

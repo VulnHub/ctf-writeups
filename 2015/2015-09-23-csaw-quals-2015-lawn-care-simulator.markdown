@@ -17,7 +17,7 @@ The objective of this challenge was to login as admin.
 
 By looking at the index source code we could notice that the version number, present in the bottom corner of the page, was calculated based on the git repository hash.
 
-{% img center /images/2015/csaw/lawn/version.png %}
+![](/images/2015/csaw/lawn/version.png)
 
 ```javascript
 <script>
@@ -75,7 +75,7 @@ else {
 ```
 As it's possible to notice the query used to verify if a user already existed, used a *LIKE* statement, this means that by submitting a username value with the character %, we could disclose the already registered users; of course, since the registration was still closed, the only user we were expecting to find as already registered was the admin username, which happened to be ~~FLAG~~.
 
-{% img center /images/2015/csaw/lawn/user_exists.png %}
+![](/images/2015/csaw/lawn/user_exists.png)
 
 The second one was in the way the login process was handled by the validate_pass.php
 

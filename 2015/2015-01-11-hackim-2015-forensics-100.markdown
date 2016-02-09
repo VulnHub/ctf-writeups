@@ -11,13 +11,13 @@ categories: [hackim]
 
 This is the first and supposely easier forensics problem in the NullCon CTF 2015
 
-{% img center /images/2015/hackim/forensics100/problem.png %}
+![](/images/2015/hackim/forensics100/problem.png)
 
 we were provided with a pcap file, and were asked to identify the hideout of a wanted suspect.
 
 I started looking at the pcap file in wireshark, and noticed that there were a bunch of HTTP sessions, at this point i decided to load the pcap file in xplico to make my life easier and to reconstruct the web pages.
 
-{% img center /images/2015/hackim/forensics100/urls.png %}
+![](/images/2015/hackim/forensics100/urls.png)
 
 By opening the url
 
@@ -25,7 +25,7 @@ By opening the url
 
 we can notice that it's an http server directory listing and that there are a bunch of files in there.
 
-{% img center /images/2015/hackim/forensics100/locationlogs_index.png %}
+![](/images/2015/hackim/forensics100/locationlogs_index.png)
 
 I proceded to save the files on disk and noticed that they were a mix of KML and KMZ files that i could import in google earth.
 
@@ -62,11 +62,11 @@ I've added the appropriate headers to the file:
 
 and what i got as result is the following:
 
-{% img center /images/2015/hackim/forensics100/tracelog.png %}
+![](/images/2015/hackim/forensics100/tracelog.png)
 
 That placeholder i've marked in red seemed really suspicious, and in fact, if you look at the picture that google earth shows nearby we can see
 
-{% img center /images/2015/hackim/forensics100/cave.png %}
+![](/images/2015/hackim/forensics100/cave.png)
 
 the flag is
 
