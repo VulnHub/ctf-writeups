@@ -1,7 +1,10 @@
-## VulnHub CTF team
+<p align="center">
+<img src="/images/team-logo.png"/>
+</p>
+
 We're a group of people who met up on [VulnHub's IRC channel](https://www.vulnhub.com/chat/), and we like to hack things. You can find us registered on [CTF Time](https://ctftime.org/team/10276). This repository hosts a collection of our write-ups from various CTFs we've competed in. 
 
-## Team members
+Here's a list of our active team members:
 
 * superkojiman [http://blog.techorganic.com](http://blog.techorganic.com/) || [@superkojiman](https://twitter.com/superkojiman) || [VulnHub Profile](https://www.vulnhub.com/author/superkojiman,43/)
 * barrebas [https//barrebas.github.io](https://barrebas.github.io/) || [@barrebas](https://twitter.com/barrebas) || [VulnHub Profile](https://www.vulnhub.com/author/bas,58/)
