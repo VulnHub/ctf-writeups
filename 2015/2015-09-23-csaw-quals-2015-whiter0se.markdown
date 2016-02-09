@@ -1,0 +1,23 @@
+---
+layout: post
+title: "CSAW Quals 2015 whiter0se"
+date: 2015-09-23 19:17:29 -0400
+author: [superkojiman]
+comments: true
+categories: [csaw]
+---
+
+### Solved by superkojiman
+
+Download yet another "episode" of Mr. Robot. 
+
+```
+$ cat eps1.7_wh1ter0se_2b007cf0ba9881d954e85eb475d0d5e4.m4v
+EOY XF, AY VMU M UKFNY TOY YF UFWHYKAXZ EAZZHN. UFWHYKAXZ ZNMXPHN. UFWHYKAXZ EHMOYACOI. VH'JH EHHX CFTOUHP FX VKMY'U AX CNFXY FC OU. EOY VH KMJHX'Y EHHX IFFQAXZ MY VKMY'U MEFJH OU.
+
+```
+Some kind of substition cipher. Solve with http://quipqiup.com/index.php
+
+```
+Flag: BUT NO, IT WAS A SHORT CUT TO SOMETHING BIGGER. SOMETHING GRANDER. SOMETHING BEAUTIFUL. WE'VE BEEN FOCUSED ON WHAT'S IN FRONT OF US. BUT WE HAVEN'T BEEN LOOKING AT WHAT'S ABOVE US.
+```

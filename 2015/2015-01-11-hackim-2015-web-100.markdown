@@ -1,0 +1,41 @@
+---
+layout: post
+title: "HackIM 2015 Web 100"
+date: 2015-01-11 16:30:40 -0500
+author: [et0x]
+comments: true
+categories: [hackim]
+---
+
+### Solved by et0x
+
+Upon visiting the page, you see the following error:
+
+![](/images/2015/hackim/web100/1.png)
+
+I run the request / response through burp suite to see if there is anything strange going on internally.  The headers of the request looks strange in that two PHPSESSIDs are set per response, and they differ.
+
+![](/images/2015/hackim/web100/2.png)
+
+So I wonder what happens if I change my PHPSESSID cookie to the first one?  Surely it can't be that easy.  After changing it, I see that nothing changes except the "Error Code" that shows up in the document.
+Due to the fact that the PHPSESSID keeps changing, I throw my request to this page into Burp Intruder and select the session id as part of my payload so that it greps for it in the server's response each time, and uses the new session id as the next request's session id.  I also concurrently grep out each error code so that I can put them all together to see if anything worthwhile comes out.
+
+![](/images/2015/hackim/web100/3.png)
+
+![](/images/2015/hackim/web100/4.png)
+
+![](/images/2015/hackim/web100/5.png)
+
+
+After the running the attack for a few seconds, I note that the error codes start to be duplicates from some of the earlier requests in the chain, so I stop the attack, assuming that we have gotten all the info that we need.
+
+![](/images/2015/hackim/web100/6.png)
+
+Strangely enough, these error code substrings look kind of like -- you guessed it -- base64!  I put them all together, then decode them.
+
+```
+root@kali:~# echo TnVsbGNvbkdvYTIwMTVAV0VCMDAxMTAw | base64 -d
+NullconGoa2015@WEB001100
+```
+So our flag is `flag{NullconGoa2015@WEB001100}`
+

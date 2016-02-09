@@ -1,0 +1,69 @@
+---
+layout: post
+title: "HackIM 2015 Web 400"
+date: 2015-01-11 17:58:02 -0500
+author: [swappage,nullmode]
+comments: true
+categories: [hackim]
+---
+
+### Solved by Swappage and NullMode
+
+In this 400 points problem we were asked to buy a Nullcon pass for free.
+
+by opening the web page we were presented with the following scenario
+
+{% img center /images/2015/hackim/web400/webpage.png %}
+
+and by clicking the buy button the following form was submitted
+
+```html
+         <form action=checkout.php method=POST>
+         <input type=hidden name=msg value="Nullcon2015%7Ccorporate%7C10999"><br>
+         <input type=hidden name=checksum value="568fe78b29ac377a58ae1fbf02b4d1a158e605b3897916227e4b3ecfc78973db"><br>
+         
+        <input type=submit value=Buy>
+     </form>
+```
+
+to buy a a pass for free we had to tamper the msg parameter to have the price = 0, but we can't directly modify the value because its integrity is checked against the checksum value.
+
+If we look at the source code of the page we see the following comment:
+
+```html
+   <!-- 
+        
+        
+    if( $checksum === hash("sha256",$secretkey . $msg))   // secretkey is XXXXXXXXXXXXXXXXXXX    :-P
+    {
+      // Success; :)
+    }
+   
+  ?> 
+   -->
+```
+
+and this reminded me to a really similar problem i solved for picoCTF.
+
+This definitely a length extension attack against the checksum value, which can be performed because we are provided with the length of the secret key, which is 19 characters.
+
+using hashpump it was possible to create the appropriate tampered token and the corresponding checksum
+
+    token: Nullcon2015|corporate|10999%80%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%01p|0
+    checksum: a2319d6945201a4b9fd67f077248faff2b735297cca2ac10762af65b2c2dca48
+
+submitting them to the web server resulted in the flag being correctly retrieved:
+
+```
+    HTTP/1.1 200 OK
+    Date: Fri, 09 Jan 2015 21:08:38 GMT
+    Server: Apache/2.4.7 (Ubuntu)
+    X-Powered-By: PHP/5.5.9-1ubuntu4.5
+    Vary: Accept-Encoding
+    Content-Length: 114
+    Keep-Alive: timeout=5, max=100
+    Connection: Keep-Alive
+    Content-Type: text/html
+
+    <h1> Checkout </h1>Congratualtion You bought Nullcon Pass in ZERO rupee. See you at Nullcon!Flag is fl@g_*2o15}  
+```

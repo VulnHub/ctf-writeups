@@ -1,0 +1,313 @@
+---
+layout: post
+title: "SU-CTF 2014 2048"
+date: 2014-10-07 20:18:15 -0400
+author: [superkojiman]
+comments: true
+categories: [sharif]
+---
+
+### Solved by superkojiman
+
+This is a 200 point reversing challenge for Sharif CTF 2014, called 2048.
+
+The hint provided for this challenge was:
+
+> What is the ip of the victim? Flag is: md5(ip)
+
+The binary provided is an implementation of a game called [2048](http://en.wikipedia.org/wiki/2048_%28video_game%29).
+
+```
+HISCORE: 0 || SCORE: 0
+-------------------------
+|     |     |     |     |
+|   2 |     |     |     |
+|     |     |     |     |
+|     |   2 |     |     |
+-------------------------
+```
+
+Moving on to gdb, I examined the main() function:
+
+```
+root@kali ~/Desktop/2048
+# gdb -q 2048
+pReading symbols from /root/Desktop/2048/2048...done.
+gdb-peda$ pdisass main
+Dump of assembler code for function main:
+   0x0000000000400e50 <+0>: push   rbp
+   0x0000000000400e51 <+1>: mov    rbp,rsi
+   0x0000000000400e54 <+4>: push   rbx
+   0x0000000000400e55 <+5>: mov    ebx,edi
+   0x0000000000400e57 <+7>: sub    rsp,0x8
+   0x0000000000400e5b <+11>:    call   0x400e10 <fork@plt>
+   0x0000000000400e60 <+16>:    cmp    eax,0x0
+   0x0000000000400e63 <+19>:    jl     0x400e78 <main+40>
+   0x0000000000400e65 <+21>:    jne    0x400e6e <main+30>
+   0x0000000000400e67 <+23>:    xor    eax,eax
+   0x0000000000400e69 <+25>:    call   0x4011d0 <run_bot>
+   0x0000000000400e6e <+30>:    mov    rsi,rbp
+   0x0000000000400e71 <+33>:    mov    edi,ebx
+   0x0000000000400e73 <+35>:    call   0x401bc0 <run_game>
+   0x0000000000400e78 <+40>:    mov    edi,0x4020b5
+   0x0000000000400e7d <+45>:    call   0x400cb0 <puts@plt>
+   0x0000000000400e82 <+50>:    pop    r8
+   0x0000000000400e84 <+52>:    pop    rbx
+   0x0000000000400e85 <+53>:    mov    eax,0x1
+   0x0000000000400e8a <+58>:    pop    rbp
+   0x0000000000400e8b <+59>:    ret
+End of assembler dump.
+```
+
+A function called run_bot() was getting executed by the child process. Looking at its disassembly revealed the following:
+
+```
+gdb-peda$ pdisass run_bot
+Dump of assembler code for function run_bot:
+   0x00000000004011d0 <+0>: sub    rsp,0x8
+   0x00000000004011d4 <+4>: jmp    0x4011ee <run_bot+30>
+   0x00000000004011d6 <+6>: nop    WORD PTR cs:[rax+rax*1+0x0]
+   0x00000000004011e0 <+16>:    mov    edi,DWORD PTR [rip+0x201f3a]        # 0x603120 <sleep_time>
+   0x00000000004011e6 <+22>:    sub    edi,0xa
+   0x00000000004011e9 <+25>:    call   0x400d90 <sleep@plt>
+   0x00000000004011ee <+30>:    xor    eax,eax
+   0x00000000004011f0 <+32>:    call   0x400f80 <check_time>
+   0x00000000004011f5 <+37>:    cmp    eax,0x1
+   0x00000000004011f8 <+40>:    jne    0x4011e0 <run_bot+16>
+   0x00000000004011fa <+42>:    xor    eax,eax
+   0x00000000004011fc <+44>:    call   0x400fb0 <attack>
+End of assembler dump.
+```
+
+Two interesting functions were called here: check_time() and attack(). If check_time() returned 1, then attack() was executed. Here's what check_time() looks like:
+
+```
+gdb-peda$ pdisass check_time
+Dump of assembler code for function check_time:
+   0x0000000000400f80 <+0>: sub    rsp,0x8
+   0x0000000000400f84 <+4>: xor    edi,edi
+   0x0000000000400f86 <+6>: call   0x400e40 <time@plt>
+   0x0000000000400f8b <+11>:    mov    ecx,DWORD PTR [rip+0x20218b]        # 0x60311c <time_1>
+   0x0000000000400f91 <+17>:    mov    edx,eax
+   0x0000000000400f93 <+19>:    mov    eax,0xffffffff
+   0x0000000000400f98 <+24>:    cmp    edx,ecx
+   0x0000000000400f9a <+26>:    jb     0x400fa9 <check_time+41>
+   0x0000000000400f9c <+28>:    add    ecx,DWORD PTR [rip+0x20217e]        # 0x603120 <sleep_time>
+   0x0000000000400fa2 <+34>:    cmp    ecx,edx
+   0x0000000000400fa4 <+36>:    sbb    eax,eax
+   0x0000000000400fa6 <+38>:    or     eax,0x1
+   0x0000000000400fa9 <+41>:    add    rsp,0x8
+   0x0000000000400fad <+45>:    ret
+End of assembler dump.
+```
+
+time() was being called in this funciton, and the result was being stored in edx. Another time value in rip+0x20217e was saved into ecx, and the two registers were compared. If edx was biggir, and it always was, then the function would return -1. This in turn caused the check in run_bot() to take a branch away from the attack path(), and towards the branch that called the sleep() function instead.
+
+The attack() function is pretty big so I won't post the entire disassembly here. It looked like it was putting together a string of some sort and calling system() at the end. I assumed that the string was the command being passed to system().
+
+So in order to get attack() to execute, I needed to make sure check_time() returned 1. run_bot() is executed by the child process from fork(), so I made sure gdb followed the child process:
+
+```
+gdb-peda$ set follow-fork-mode child
+```
+
+Once the debugger hit check_time(), the program stopped with a SIGTTOU error. Fortunately gdb could be set to ignore this:
+
+```
+gdb-peda$ handle SIGTTOU nostop
+```
+
+I set a breakpoint at check_time(), restarted the program, and stepped over the instructions until time() executed. I took note of the value in eax, which was the return value of time():
+
+```
+EAX: 0x54276b23 ("#k'T")
+```
+
+I continued stepping through the function until it got to the comparison:
+
+```
+0x400f98 <check_time+24>:   cmp    edx,ecx
+```
+
+At this point, the value in eax had been copied into ecx, and eax has been set to -1, which was the default return value for check_time(). Here are the contents of ecx and edx:
+
+```
+gdb-peda$ reg ecx edx
+ECX: 0x52c35a80
+EDX: 0x54276b23 ("#k'T")
+```
+
+Since edx was greater than ecx, check_time() woudl return -1. To get around this, I set edx to the value stored in ecx.
+
+```
+gdb-peda$ set $edx = $ecx
+gdb-peda$ reg ecx edx
+ECX: 0x52c35a80
+EDX: 0x52c35a80
+```
+
+This prevented execution from jumping to the end of the function, and moved execution down the branch that seat eax to 1. Before that happened though, ecx was changed once again:
+
+```
+0x400f9c <check_time+28>:   add    ecx,DWORD PTR [rip+0x20217e]        # 0x603120 <sleep_time>
+```
+
+This added the value 0x5a800000 (sleep_time) to ecx which set it to 0x52c4ac00. It then stepped through a few more instructions that set eax to 1.
+
+```
+gdb-peda$ reg eax
+EAX: 0x1
+gdb-peda$ context code 5
+[-------------------------------------code-------------------------------------]
+   0x400fa9 <check_time+41>:    add    rsp,0x8
+=> 0x400fad <check_time+45>:    ret
+   0x400fae:    xchg   ax,ax
+   0x400fb0 <attack>:   push   r13
+   0x400fb2 <attack+2>: xor    edi,edi
+[------------------------------------------------------------------------------]
+Legend: code, data, rodata, value
+```
+
+This returned execution to run_bot(). The check on the return address was satisfied and attack() was executed:
+
+```
+[-------------------------------------code-------------------------------------]
+   0x4011ee <run_bot+30>:   xor    eax,eax
+   0x4011f0 <run_bot+32>:   call   0x400f80 <check_time>
+   0x4011f5 <run_bot+37>:   cmp    eax,0x1
+=> 0x4011f8 <run_bot+40>:   jne    0x4011e0 <run_bot+16>
+   0x4011fa <run_bot+42>:   xor    eax,eax
+   0x4011fc <run_bot+44>:   call   0x400fb0 <attack>
+   0x401201:    data32 data32 data32 data32 data32 nop WORD PTR cs:[rax+rax*1+0x0]
+   0x401210 <merge>:    cmp    edi,0x2
+                                                              JUMP is NOT taken
+[------------------------------------stack-------------------------------------]
+```
+
+I stepped into the attack() function and set a breakpoint at the call to system() and let the program continue. At this point I just wanted to see what system() was doing:
+
+```
+[-------------------------------------code-------------------------------------]
+   0x4011b3 <attack+515>:   xor    eax,eax
+   0x4011b5 <attack+517>:   call   0x400ca0 <__fprintf_chk@plt>
+   0x4011ba <attack+522>:   mov    rdi,rbx
+=> 0x4011bd <attack+525>:   call   0x400d30 <system@plt>
+   0x4011c2 <attack+530>:   mov    edi,0x1
+   0x4011c7 <attack+535>:   call   0x400cc0 <exit@plt>
+   0x4011cc:    nop    DWORD PTR [rax+0x0]
+   0x4011d0 <run_bot>:  sub    rsp,0x8
+Guessed arguments:
+arg[0]: 0xcb10d0 ("wget http://ctf.sharif.edu:2048/9ee7c727c78f86f039014f48199b8be6/target.txt")
+[------------------------------------stack-------------------------------------]
+```
+
+The guessed argument shows that it's calling the wget command and downloading http://ctf.sharif.edu:2048/9ee7c727c78f86f039014f48199b8be6/target.txt. Thinking that I was done, I ran the command on a terminal and got:
+
+```
+root@kali ~/Desktop/2048
+# wget http://ctf.sharif.edu:2048/9ee7c727c78f86f039014f48199b8be6/target.txt
+--2014-09-27 22:25:42--  http://ctf.sharif.edu:2048/9ee7c727c78f86f039014f48199b8be6/target.txt
+Resolving ctf.sharif.edu (ctf.sharif.edu)... 213.233.175.130
+Connecting to ctf.sharif.edu (ctf.sharif.edu)|213.233.175.130|:2048... connected.
+HTTP request sent, awaiting response... 307 Temporary Redirect
+Location: http://ctf.sharif.edu:2048/9ee7c727c78f86f039014f48199b8be6/target.txt [following]
+--2014-09-27 22:25:46--  http://ctf.sharif.edu:2048/9ee7c727c78f86f039014f48199b8be6/target.txt
+Connecting to ctf.sharif.edu (ctf.sharif.edu)|213.233.175.130|:2048... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2014-09-27 22:25:46 ERROR 404: Not Found.
+```
+
+Ok, so that didn't work. I tried it a couple more times just in case the server was having issues, but after a while it was clear that this wasn't the correct URL.
+
+Looking at the attack() function, I noticed that it also called time() and then later on MD5_Init(), MD5_Update(), and MD5_Final(). Perhaps that hash in the URL had something to do with the current call to time()?
+
+To make debugging easier, I updated my .gdbinit to automatically set edx to the value in ecx in check_time(), which in turn would allow me to reach the attack() function:
+
+```
+file 2048
+
+# ignore SIGTTOU
+handle SIGTTOU nostop
+
+# breakpoint 1 at 0x400f98 <+24>: cmp    edx,ecx
+br *0x400f98
+
+# run until we get to breakpoint 1
+run
+
+# set edx to ecx
+set $edx = $ecx
+
+# breakpoint 2 at 0x400fd2 <attack+34>:  call   0x400e40 <time@plt>
+br *0x400fd2
+
+# continue to breakpoint 2
+continue
+
+# breakpoint 3 at 0x4011bd <+525>:    call   0x400d30 <system@plt>
+br *0x4011bd
+
+```
+
+I restarted gdb and it hit the breakpoint at the call to time() in the attack() function as expected. I stepped over the call to time() and checked the value in eax, ecx, and edx:
+
+```
+gdb-peda$ reg eax ecx edx
+EAX: 0x54278082
+ECX: 0x52c4ac00
+EDX: 0x52c35a80
+```
+
+eax contained the return value of time() from attack(), ecx contained was the sum of edx and 0x5a800000 (sleep_time), and edx contained the return value of time() from check_time(). I suspected that one of these values affected the hash in the URL, and since I had to change time()'s return value earlier in check_time(), I figured I might need to do the same here. For my first try, I decided to use the value in ecx:
+
+```
+gdb-peda$ set $eax = $ecx
+```
+
+I continued execution and looked at the argument to system():
+
+```
+Guessed arguments:
+arg[0]: 0x21610d0 ("wget http://ctf.sharif.edu:2048/7266de4447eba9a354622271cff2dde5/target.txt")
+```
+
+Hey it changed! I ran the command on a terminal to see what would happen:
+
+```
+root@kali ~/Desktop/2048
+# wget http://ctf.sharif.edu:2048/7266de4447eba9a354622271cff2dde5/target.txt
+--2014-09-27 23:44:08--  http://ctf.sharif.edu:2048/7266de4447eba9a354622271cff2dde5/target.txt
+Resolving ctf.sharif.edu (ctf.sharif.edu)... 213.233.175.130
+Connecting to ctf.sharif.edu (ctf.sharif.edu)|213.233.175.130|:2048... connected.
+HTTP request sent, awaiting response... 307 Temporary Redirect
+Location: http://ctf.sharif.edu:2048/7266de4447eba9a354622271cff2dde5/target.txt [following]
+--2014-09-27 23:44:08--  http://ctf.sharif.edu:2048/7266de4447eba9a354622271cff2dde5/target.txt
+Connecting to ctf.sharif.edu (ctf.sharif.edu)|213.233.175.130|:2048... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 31 [text/plain]
+Saving to: `target.txt'
+
+100%[=================================================================>] 31          --.-K/s   in 0s
+
+2014-09-27 23:44:09 (5.21 MB/s) - `target.txt' saved [31/31]
+```
+
+Success! Reading the contents of target.txt showed the following:
+
+```
+root@kali ~/Desktop/2048
+# cat target.txt
+victim address: 95.211.102.203
+```
+
+According to the hint provided, I needed to get the MD5 hash of the IP address, so:
+
+```
+root@kali ~/Desktop/2048
+# echo -n 95.211.102.203 | md5sum
+5cfed0f91a2b71a5d79aa681eaf10adb  -
+```
+
+I submitted the flag as **5cfed0f91a2b71a5d79aa681eaf10adb** and scored the 200 points.
+
+![](/images/2014/sharif/2048/01.png)

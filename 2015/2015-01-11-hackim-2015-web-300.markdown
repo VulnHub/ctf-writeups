@@ -1,0 +1,25 @@
+---
+layout: post
+title: "HackIM 2015 Web 300"
+date: 2015-01-11 16:33:45 -0500
+author: [et0x]
+comments: true
+categories: [hackim]
+---
+
+### Solvd by et0x
+
+Upon visiting the page, you are challenged with the following cryptic mesage:
+
+`"Find the keys to your home"`
+
+And a link to "loop.php"
+
+Which contains a form to submit something, and a picture of a house.
+
+Also, the hint says `<!-- A place to loo[k]::back. -->`
+
+So home to nerds means "loopback" as can be seen in the popular t-shirts that are made, which would go along with the hint loo[k]::back, especially if you are talking about ipv6!  The shorthand of loopback in IPv6 is ::1, or 0:0:0:0:0:0:0:1 if you aren't abbreviating.  This is what ended up being the flag!
+
+Not really a "web" challenge per se, but that is how it was solved.
+

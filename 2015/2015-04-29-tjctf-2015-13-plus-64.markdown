@@ -1,0 +1,21 @@
+---
+layout: post
+title: "TJCTF 2015 13+64"
+date: 2015-04-29 01:29:00 -0400
+author: [superkojiman]
+comments: true
+categories: [tjctf]
+---
+
+### Solved by superkojiman
+
+> You find a scrap of paper on the floor, with "Z3S1LJj1YKAyqzIhA3xgH2I2Z24=" and "13+64" scribbled on it. Can you decode the message?
+
+We're given what appears to be a Base64 encoded message, but decoding it returns garbage. The trick is to decode it first using ROT13, and then decode the result using Base64. This can be done in one swoop with python: 
+
+```python
+>>> print 'Z3S1LJj1YKAyqzIhA3xgH2I2Z24='.decode('rot13').decode('base64')
+3qual5-seven7y-Sev3n
+```
+
+Flag: 3qual5-seven7y-Sev3n
