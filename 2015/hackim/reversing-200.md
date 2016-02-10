@@ -59,7 +59,9 @@ and passing the check of IsDebuggerPresent at
 We get to the Debugoutput
 ```
 080010E5   FF15 04A00008    CALL DWORD PTR DS:[800A004]              ; kernel32.OutputDebugStringA
-``` and got the flag
+```
+
+and got the flag
 
 ![](/images/2015/hackim/reversing200/upx5.png)
 
