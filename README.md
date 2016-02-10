@@ -14,7 +14,10 @@ Here's a list of our active team members:
 * et0x [http://rwnin.net/](http://rwnin.net/) || [@_et0x](https://twitter.com/_et0x) || [VulnHub Profile](https://www.vulnhub.com/author/et0x,109/)
 * bitvijays [https://bitvijays.github.io/](https://bitvijays.github.io/) || [@bitvijays](https://twitter.com/bitvijays)
 
-To submit a writeup, fork the repository, add your writeup, and send a pull request. You can use the following template: 
+To submit a writeup, fork the repository, clone your fork, add your writeup, and send a pull request. For more details, check out GitHub's tutorail on [forking](https://help.github.com/articles/fork-a-repo/) and submitting a [pull](https://help.github.com/articles/using-pull-requests/) request.
+
+You can use the following template for your write-up:
+
 ```
 ### Solved by <team-member>
 
