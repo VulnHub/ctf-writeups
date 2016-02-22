@@ -11,7 +11,7 @@ Thank you, I'm trying to print 127.0.0.1:6666 now!
 AAAA.0xffa7179c.0x2000.(nil).(nil).(nil).(nil).0x41414141.0x2e70252e.0x252e7025.0x70252e70
 ```
 
-It's clear that our format string can be found at offset 7. The simple solution was to overwrite a function's GOT pointer with one that we wanted. A closer examination of the binary revealed a file called "flag.txt" in the string dump:
+It's clear that our format string can be found at offset 7. The simple solution was to overwrite a function's GOT pointer with one that we wanted. A closer examination of the binary using radare2 revealed a file called "flag.txt" in the string dump:
 
 ```
 [0x08048ad0]> iz
@@ -59,7 +59,7 @@ Some function that wasn't being called by anything. Digging deeper:
             0x080488bd      c3             ret
 ```
 
-The summarize the above function. Basically this function opens "flag.txt", reads the contents, and prints it back out to stdout. We can find where the function starts by subtracting some bytes from 0x808875 and looking for the function prologue:
+Basically this function opens "flag.txt", reads the contents, and prints it back out to stdout. We can find where the function starts by subtracting some bytes from 0x808875 and looking for the function prologue:
 
 ```
 [0x00000200]> pd -10@0x8048875
