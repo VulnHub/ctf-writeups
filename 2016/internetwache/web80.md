@@ -1,4 +1,4 @@
-## Solved by superkojiman
+### Solved by superkojiman
 
 We're given a URL that points to a simple static HTML blog. There's a hint about git in the blog, and as it turns out, there's a git repository at https://0ldsk00lblog.ctf.internetwache.org/
 

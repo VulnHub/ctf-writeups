@@ -1,4 +1,4 @@
-## Solved by barrebas and superkojiman
+### Solved by barrebas and superkojiman
 
 This was a relatively easy one that barrebas and I solved at the same time. Let's examine the vulnerability first. We're given a binary called RemotePrinter. Running it prompts us for an IP address and a port to connect to, after which it waits to receive data from the "printer". We can simulate the printer using netcat and send back some data. In this case, we found that it was vulnerable to a format string attack:
 
@@ -92,7 +92,7 @@ There it is, 0x08048867. Now the format string bug occurs after it receives data
 Since close() is called right after printf(), it was a good candidate for overwriting. The goal was to overwrite close()'s GOT pointer to point to 0x08048867, which would print out the flag. 
 
 
-### superkojiman's solution
+#### superkojiman's solution
 I accomplished this with [libformatstr](https://github.com/hellman/libformatstr): 
 
 ```python

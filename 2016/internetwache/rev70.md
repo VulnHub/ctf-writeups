@@ -1,4 +1,4 @@
-## Solved by superkojiman
+### Solved by superkojiman
 
 It's an ARM binary! The good stuff happens in the handle_task function. I opened up the binary in IDA and found the following: 
 
