@@ -16,7 +16,7 @@ C:\Users\koji\Desktop>source 1111 2222 3333 4444
 So u think you found the flag
 ```
 
-The last case here was interesting, in that the string "So you think you found the flag", was nowhere to be found in the binary. Perhaps it was being generated on the fly. Looking into it further, I traced the execution to a function called getdigs() at 0x0040151D. It takes a pointer to an int, in this case, the first argument we provided. Looking at the assembly, it was clear that it was performing some math on each of the digits in the four digit argument. I loaded it up in Immunity Debugger,  but before I could set a breakpoint at getdigs(), I noticed something interesting int he dump window:
+The last case here was interesting, in that the string "So you think you found the flag", was nowhere to be found in the binary. Perhaps it was being generated on the fly. Looking into it further, I traced the execution to a function called getdigs() at 0x0040151D. It takes a pointer to an int, in this case, the first argument we provided. Looking at the assembly, it was clear that it was performing some math on each of the digits in the four digit argument. I loaded it up in Immunity Debugger,  but before I could set a breakpoint at getdigs(), I noticed something interesting in the dump window:
 
 ![](/images/2016/pragyan/vault/01.png)
 

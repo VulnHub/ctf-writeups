@@ -42,4 +42,4 @@ theflagishere() function caught my eye, and so I examined it:
 \           0x0040155d      c3             ret
 ```
 
-A relatively short function that basically prints the flag out. In fact, radare was kind enough to display the string that was to  be printed; ```bVasqdfNovaQnnaww```, which wass the flag. 
+A relatively short function that basically prints the flag out. In fact, radare was kind enough to display the string that was to  be printed; ```bVasqdfNovaQnnaww```, which was the flag. 
