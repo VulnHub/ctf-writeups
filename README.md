@@ -6,7 +6,7 @@ We're a group of people who met up on [VulnHub's IRC channel](https://www.vulnhu
 
 Here's a list of our active team members:
 
-* superkojiman [http://blog.techorganic.com](http://blog.techorganic.com/) || [@superkojiman](https://twitter.com/superkojiman) || [VulnHub Profile](https://www.vulnhub.com/author/superkojiman,43/)
+* superkojiman [https://blog.techorganic.com](https://blog.techorganic.com/) || [@superkojiman](https://twitter.com/superkojiman) || [VulnHub Profile](https://www.vulnhub.com/author/superkojiman,43/)
 * barrebas [https://barrebas.github.io](https://barrebas.github.io/) || [@barrebas](https://twitter.com/barrebas) || [VulnHub Profile](https://www.vulnhub.com/author/bas,58/)
 * Swappage [https://swappage.github.io](https://swappage.github.io/) || [@swappage](https://twitter.com/swappage) || [VulnHub Profile](https://www.vulnhub.com/author/swappage,85/)
 * historypeats [http://www.historypeats.com](http://www.historypeats.com/) || [@historypeats](https://twitter.com/historypeats) || [VulnHub Profile](https://www.vulnhub.com/author/historypeats,99/)
