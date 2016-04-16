@@ -9,4 +9,4 @@ This is a 60 point reversing challenge. We're given a jar file called Secure_Tex
 
 Logging in with these credentials returned the flag.
 
-![](/images/2016/sctf/secure_text_server/01.png)
+![](/images/2016/sctf/secure_text_saver/01.png)
