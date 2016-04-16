@@ -1,6 +1,8 @@
 ### Solved by superkojiman and Swappage
 
-On to pwn2! When we connect to the service we're first prompted for the number of bytes we want to input. The maximum it will take is 32 bytes; anything greater will result is an error. After that, we're prompted for some input, and it basically reads in the number of bytes we specified earlier. 
+On to pwn2! This binary was changed at some point during the competition. Initially there was a function that had a `syscall` instruction. Unfortunately this didn't work on 32-bit binaries, so the solution we came up with worked around it. After the binary was updated, the `syscall` was changed to `int 0x80` to allow for 32-bit ROPing, but they allowed us to keep the points.
+
+When we connect to the service we're first prompted for the number of bytes we want to input. The maximum it will take is 32 bytes; anything greater will result is an error. After that, we're prompted for some input, and it basically reads in the number of bytes we specified earlier. 
 
 The first vulnerability is an integer overflow. Entering a negative number results in tricking the binary into accepting a much larger value which will cause a buffer overflow:
 
