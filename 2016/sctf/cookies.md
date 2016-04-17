@@ -26,9 +26,9 @@ Checking that hash against hashkiller.co.uk I found this `thisisaverystrongpassw
 
 With this information I wanted to see if it was enough to get the flag.
 
-![Screenshot 01.png](/hackpwn/writeups/wiki/images/CTF/2016/sCTF/cookies/01.png)
+![Screenshot 01.png](/images/2016/sctf/cookies/01.png)
 
-![Screenshot 02.png](/hackpwn/writeups/wiki/images/CTF/2016/sCTF/cookies/02.png)
+![Screenshot 02.png](/images/2016/sctf/cookies/02.png)
 
 
 Flag: `sctf{g3t_y0ur_h4nd_0ut_0f_my_c00k13_j4r!}`

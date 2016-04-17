@@ -6,13 +6,13 @@ Presidents was a web challenge worth 40 points.
 
 We're greated with a list of candidates and a search box
 
-![Screenshot 01](/hackpwn/writeups/wiki/images/CTF/2016/sCTF/presidents/01.png)
+![Screenshot 01](/images/2016/sctf/presidents/01.png)
 
 Messing with the search field reveals that it's vulnerable to blind SQL injection.
 
-![Screenshot 02](/hackpwn/writeups/wiki/images/CTF/2016/sCTF/presidents/02.png)
+![Screenshot 02](/images/2016/sctf/presidents/02.png)
 
-![Screenshot 03](/hackpwn/writeups/wiki/images/CTF/2016/sCTF/presidents/03.png)
+![Screenshot 03](/images/2016/sctf/presidents/03.png)
 
 So, because I'm a lazy person, and really hate blind injections I turned to SQLmap.
 
