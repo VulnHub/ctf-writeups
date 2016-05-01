@@ -14,7 +14,7 @@ Here's a list of our active team members:
 * et0x [http://rwnin.net/](http://rwnin.net/) || [@_et0x](https://twitter.com/_et0x) || [VulnHub Profile](https://www.vulnhub.com/author/et0x,109/)
 * bitvijays [https://bitvijays.github.io/](https://bitvijays.github.io/) || [@bitvijays](https://twitter.com/bitvijays)
 * z0rex [http://blog.oleaass.com/](http://blog.oleaass.com/) || [@oleaass](https://twitter.com/oleaass) || [VulnHub Profile](https://www.vulnhub.com/author/oleaass,180/)
-* rasta_mouse [http://rastamouse.me/](http://rastamouse.me/) || [@rasta_mouse](https://twitter.com/rasta_mouse) || [VulnHub Profile](https://www.vulnhub.com/author/rasta-mouse,77/)
+* rasta_mouse [http://rastamouse.me/](http://rastamouse.me/) || [@_RastaMouse](https://twitter.com/_RastaMouse) || [VulnHub Profile](https://www.vulnhub.com/author/rasta-mouse,77/)
 
 To submit a writeup, fork the repository, clone your fork, add your writeup, and send a pull request. For more details, check out GitHub's tutorial on [forking](https://help.github.com/articles/fork-a-repo/) and submitting a [pull](https://help.github.com/articles/using-pull-requests/) request.
 
