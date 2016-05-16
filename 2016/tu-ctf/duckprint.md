@@ -4,9 +4,9 @@ Duckprint was a 100 point Web Challenge
 
 After navigating to the challenge [URL](http://130.211.242.26:31337), we see there are 3 main pages:
 
-*Register
-*Generate
-*Validate
+* Register
+* Generate
+* Validate
 
 #### Register
 
