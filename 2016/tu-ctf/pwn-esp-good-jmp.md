@@ -2,11 +2,13 @@
 
 Another vanilla buffer overflow. This time NX isn't enabled, but ASLR is. I could write and execute code on the stack, but then I'd need to leak a stack address. Too much work, when it's easier to just write directly into 0x0804a000 0x0804b000 which was also read/write/executable!
 
+```
 gdb-peda$ vmmap
 Start      End        Perm      Name
 0x08048000 0x08049000 r-xp      /root/tu/esp-good-jmp/23e4f31a5a8801a554e1066e26eb34745786f4c4
 0x08049000 0x0804a000 r-xp      /root/tu/esp-good-jmp/23e4f31a5a8801a554e1066e26eb34745786f4c4
 0x0804a000 0x0804b000 rwxp      /root/tu/esp-good-jmp/23e4f31a5a8801a554e1066e26eb34745786f4c4
+```
 
 Solution: return to gets@plt, write shellcode to 0x0804a000, and then return to 0x0804a000 to execute shellcode. 
 
