@@ -139,10 +139,10 @@ print r.recv()
 
 As I went along and examined things, I started to unlock pieces of the flag: 
 
-rug:                tjctf{y0u_m1ght_h@v3_
-paper w/uvlight:    YOUR_A1M_IS_G3TT1NG_B3TT3R}
-journal2:           b33n_m1$sing_t3h_
-tree:               fl4g_but_
+* rug:                tjctf{y0u_m1ght_h@v3_
+* paper w/uvlight:    YOUR_A1M_IS_G3TT1NG_B3TT3R}
+* journal2:           b33n_m1$sing_t3h_
+* tree:               fl4g_but_
 
 And so I ended up with:
 
