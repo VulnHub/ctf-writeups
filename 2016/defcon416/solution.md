@@ -114,7 +114,7 @@ A clue to the sixth flag was found in the second pcap file, `foo.pcap`. We isola
 
 ![](/images/2016/defcon416/power.jpg)
 
-Armed with clues about power plants, NSA and Stuxnet, we queried Google and found reference to [Nitro Zeus](http://arstechnica.com/tech-policy/2016/02/massive-us-planned-cyberattack-against-iran-went-well-beyond-stuxnet/). We tried connecting to `galahad.dc416.com` with the crdentials `nitro:zeus` and were presented with a Tic-Tac-Toe game.
+Armed with clues about power plants, NSA and Stuxnet, we queried Google and found reference to [Nitro Zeus](http://arstechnica.com/tech-policy/2016/02/massive-us-planned-cyberattack-against-iran-went-well-beyond-stuxnet/). We tried connecting to `galahad.dc416.com` with the credentials `nitro:zeus` and were presented with a Tic-Tac-Toe game.
 
 The game requires you to win 3/5 games. The starting player (you or computer) seems randomly decided.  By continuously disconnecting/reconnecting until you move first, it's pretty easy to engineer a 3/5 victory (unless you're good enough to win a game when you don't move first).  So the sequence went: `win, draw, win, draw, win`.
 
