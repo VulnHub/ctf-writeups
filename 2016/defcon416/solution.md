@@ -112,7 +112,7 @@ The fifth flag was found in `bar.pcap`. We used `tcpflow` to break it apart and 
 
 A clue to the sixth flag was found in the second pcap file, `foo.pcap`. We isolated the data stream that contained a JPEG, `power.jpg` and saved it as a raw file. We then used `foremost` to extract the jpeg, which gave us an image of a power plant with some co-ordinates on the top left, as well as a username, `nitro`. 
 
-![](/images/2016/defcon416/power.jpeg)
+![](/images/2016/defcon416/power.jpg)
 
 Armed with clues about power plants, NSA and Stuxnet, we queried Google and found reference to [Nitro Zeus](http://arstechnica.com/tech-policy/2016/02/massive-us-planned-cyberattack-against-iran-went-well-beyond-stuxnet/). We tried connecting to `galahad.dc416.com` with the crdentials `nitro:zeus` and were presented with a Tic-Tac-Toe game.
 
