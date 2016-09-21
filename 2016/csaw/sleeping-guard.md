@@ -1,6 +1,8 @@
 CSAW 2016 Sleeping Guard
 ---
 
+### Solved by barrebas
+
 Upon connecting to the address that is supplied, we receive the following file:
 
 ```bash

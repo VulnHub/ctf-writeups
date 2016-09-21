@@ -1,6 +1,8 @@
 coinslot
 ---
 
+### Solved by barrebas
+
 The service that we need to connect to gives an amount in dollars, and then asks the appropriate amount of dollar bills and coins. I whipped up a python script that could solve it for me, and after ironing out the bugs, I ran it for a few minutes. The first iteration of the script was using floats, which killed the calculation once large enough values started appearing. I fixed it by converting to cents. I ran the script again, only to find that the script was hanging and not returning the flag. This was probably because it was looking for a string in the response that wasn't there. That's why the Ctrl-c trap was added ;) 
 
 ```python

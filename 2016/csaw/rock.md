@@ -1,6 +1,8 @@
 rock
 ---
 
+### Solved by barrebas
+
 A reversing challenge! We're given a 64-bit ELF executable. When we enter 'AAAA', the program says
 
 ```
