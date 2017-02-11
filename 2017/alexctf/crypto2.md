@@ -5,7 +5,7 @@ AlexCTF crypto2
 
 For crypto2, we are given an encrypted message. According to the challenge, the message is encrypted with a one time pad, which should be unbreakable. The one time pad, however, has been re-used, allowing us to recover the plaintext by using a technique known as ```cribdragging```.
 
-There is a nice [https://github.com/SpiderLabs/cribdrag](tool) to aid us. The first part of the key is guessed to be ```ALEXCTF{```, as it makes sense to assume that the one time pad is the flag.
+There is a nice [tool](https://github.com/SpiderLabs/cribdrag) to aid us. The first part of the key is guessed to be ```ALEXCTF{```, as it makes sense to assume that the one time pad is the flag.
 
 We feed the message into the cribdrag script.
 
