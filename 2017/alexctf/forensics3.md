@@ -12,6 +12,6 @@ Now we need to extract this file. This is easily done using wireshark. Frame 101
 
 The resulting PNG looks like this:
 
-![](/images/2017/codegate/alexctf/for3/x.png)
+![](/images/2017/alexctf/for3/x.png)
 
 The flag therefore is ```ALEXCTF{SN1FF_TH3_FL4G_OV3R_USB}```
