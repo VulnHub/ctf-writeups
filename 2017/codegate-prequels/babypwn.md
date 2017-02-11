@@ -108,7 +108,7 @@ payload = buf_1 + buf_2
 
 This returned the address of `send()`. The offset could be grabbed from my machine's `libc.so`:
 
-![](/images/2017/codegate/babypwn/05.png)
+![](/images/2017/codegate/babypwn/06.png)
 
 Subtracting the offset from the address of `send()` returned libc's base address. From here on, I calculated the addresses for `mprotect()` and `read()` by adding their offsets from my libc.so to libc's base address. 
 
